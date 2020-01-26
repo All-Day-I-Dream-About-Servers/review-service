@@ -53,9 +53,9 @@ const generateReviews = () => {
     const fakeReview = {
       rating,
       title,
-      body: faker.lorem.sentences({ sentenceCount: Math.ceil(Math.random() * 3) }),
+      body: faker.commerce.productAdjective(),
       recommended,
-      name: faker.internet.userName(),
+      name: faker.lorem.sentences(Math.round(Math.random() * 3 + 1)),
       verified,
       helpfulYes,
       helpfulNo,
