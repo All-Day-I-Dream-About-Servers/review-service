@@ -1,4 +1,3 @@
-// const sequelize = require('sequelize');
 const faker = require('faker');
 const Review = require('../index.js');
 
