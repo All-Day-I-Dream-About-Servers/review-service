@@ -13,7 +13,7 @@ CREATE TABLE reviews (
   verified BOOLEAN NOT NULL,
   helpfulYes INT NOT NULL,
   helpfulNo INT NOT NULL,
-  date DATE NOT NULL,
+  date TEXT NOT NULL,
   size INT NOT NULL,
   width INT NOT NULL,
   comfort INT NOT NULL,

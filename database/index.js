@@ -15,12 +15,12 @@ const Review = sequelize.define('Review', {
   verified: { type: Sequelize.BOOLEAN, allowNull: false },
   helpfulYes: { type: Sequelize.INTEGER, allowNull: false, defaultValue: 0 },
   helpfulNo: { type: Sequelize.INTEGER, allowNull: false, defaultValue: 0 },
-  date: { type: Sequelize.DATEONLY, allowNull: false, defaultValue: Sequelize.NOW },
+  date: { type: Sequelize.STRING, allowNull: false },
   size: { type: Sequelize.INTEGER, allowNull: false },
   width: { type: Sequelize.INTEGER, allowNull: false },
   comfort: { type: Sequelize.INTEGER, allowNull: false },
   quality: { type: Sequelize.INTEGER, allowNull: false },
-});
+}, { timestamps: false });
 
 sequelize.authenticate()
   .then(() => console.log('Database connection established'))
