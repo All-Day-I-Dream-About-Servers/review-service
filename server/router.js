@@ -5,8 +5,4 @@ router
   .route('/')
   .get(controller.getReviews);
 
-router
-  .route('/overview')
-  .get(controller.getOverview);
-
 module.exports = router;

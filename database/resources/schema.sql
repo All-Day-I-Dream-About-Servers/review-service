@@ -4,8 +4,8 @@ CREATE DATABASE reviews;
 USE reviews;
 
 CREATE TABLE reviews (
-  id AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  rating INT(1) NOT NULL,
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  rating INT NOT NULL,
   title TEXT,
   body TEXT NOT NULL,
   recommended BOOLEAN NOT NULL,
