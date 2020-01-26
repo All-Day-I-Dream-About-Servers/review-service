@@ -1,4 +1,4 @@
-const sequelize = require('sequelize');
+// const sequelize = require('sequelize');
 const faker = require('faker');
 const Review = require('../index.js');
 
@@ -32,17 +32,17 @@ const generateReviews = () => {
     if (rating >= 3) {
       title = goodTitles[Math.round(Math.random() * (goodTitles.length - 1))];
       recommended = true;
-      size = Math.round(Math.random() * faker.random.number({ min: 5, max: 10 }));
-      width = Math.round(Math.random() * faker.random.number({ min: 5, max: 10 }));
-      comfort = Math.round(Math.random() * faker.random.number({ min: 5, max: 10 }));
-      quality = Math.round(Math.random() * faker.random.number({ min: 5, max: 10 }));
+      size = Math.round(faker.random.number({ min: 5, max: 10 }));
+      width = Math.round(faker.random.number({ min: 5, max: 10 }));
+      comfort = Math.round(faker.random.number({ min: 5, max: 10 }));
+      quality = Math.round(faker.random.number({ min: 5, max: 10 }));
     } else {
       title = badTitles[Math.round(Math.random() * (badTitles.length - 1))];
       recommended = false;
-      size = Math.round(Math.random() * faker.random.number({ min: 0, max: 5 }));
-      width = Math.round(Math.random() * faker.random.number({ min: 0, max: 5 }));
-      comfort = Math.round(Math.random() * faker.random.number({ min: 0, max: 5 }));
-      quality = Math.round(Math.random() * faker.random.number({ min: 0, max: 5 }));
+      size = Math.round(faker.random.number({ min: 0, max: 5 }));
+      width = Math.round(faker.random.number({ min: 0, max: 5 }));
+      comfort = Math.round(faker.random.number({ min: 0, max: 5 }));
+      quality = Math.round(faker.random.number({ min: 0, max: 5 }));
     }
     if (Math.random() > 0.1) {
       verified = true;
@@ -54,13 +54,13 @@ const generateReviews = () => {
     const fakeReview = {
       rating,
       title,
-      body: faker.lorem.sentences({ sentenceCount: Math.round(Math.random() * 3) }),
+      body: faker.lorem.sentences({ sentenceCount: Math.ceil(Math.random() * 3) }),
       recommended,
       name: faker.internet.userName(),
       verified,
       helpfulYes,
       helpfulNo,
-      date: `${faker.date.month()} ${faker.number.random({ min: 1, max: 31 })}, ${faker.number.random({ min: 2015, max: 2019 })}`,
+      date: `${faker.date.month()} ${faker.random.number({ min: 1, max: 31 })}, ${faker.random.number({ min: 2015, max: 2019 })}`,
       size,
       width,
       comfort,

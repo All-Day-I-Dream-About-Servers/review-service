@@ -11,7 +11,7 @@
     "test": "jest --coverage",
     "start": "nodemon ./server/index.js",
     "build": "webpack -d --w",
-    "seed": "node ./database/resources.seed.js"
+    "seed": "node ./database/resources/seed.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
