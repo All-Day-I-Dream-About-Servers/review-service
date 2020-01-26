@@ -6,7 +6,6 @@ module.exports = {
   summary: () => {
     Review.findAll({
       attributes: [
-        'rating',
         [sequelize.fn('AVG', sequelize.col('rating')), 'ratingAvg'],
         // [
         //   ,
