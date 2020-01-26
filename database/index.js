@@ -1,13 +1,14 @@
+/* eslint-disable no-console */
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'reviews'
+  database: 'reviews',
 });
 
-db.connect( (err, data) => {
+db.connect((err) => {
   if (err) {
     console.error(err);
   } else {
