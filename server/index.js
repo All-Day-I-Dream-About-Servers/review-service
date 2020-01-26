@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 
+app.use('/api', router);
+
 app.use(express.static(path.join(__dirname, '../client/dist')));
 // eslint-disable-next-line no-console
 app.listen(port, () => console.log(`Server listening on port ${port}`));

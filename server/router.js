@@ -2,11 +2,11 @@ const router = require('express').Router();
 const controller = require('./controller.js');
 
 router
-  .route('/api')
+  .route('/')
   .get(controller.getReviews);
 
 router
-  .route('/api/overview')
+  .route('/overview')
   .get(controller.getOverview);
 
 module.exports = router;
