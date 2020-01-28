@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 const Review = (props) => {
-  const { info } = props.info;
+  const { info } = props;
   return (
     <div>
       <div className="review=body">
@@ -17,8 +19,10 @@ const Review = (props) => {
       </div>
       <div className="review-replies">
         <span>Was this review helpful?</span>
-        <span>Yes</span> <span>({info.helpfulYes})</span>
-        <span>No</span> <span>({info.helpfulNo})</span>
+        <span>Yes</span>
+        <span>({info.helpfulYes})</span>
+        <span>No</span>
+        <span>({info.helpfulNo})</span>
       </div>
     </div>
   );

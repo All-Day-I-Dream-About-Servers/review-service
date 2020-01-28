@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
 import Review from './Review';
@@ -57,7 +60,7 @@ export default class App extends React.Component {
     axios.get(`/api/reviews/relevant/${this.state.displayCount}`)
       .then((data) => {
         this.setState({
-          reviews: data.data
+          reviews: data.data,
         });
       })
       .catch((err) => console.error(err));
