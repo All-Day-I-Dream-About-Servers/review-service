@@ -5,7 +5,7 @@ const Review = require('../index.js');
 
 const generateRating = () => {
   const temp = Math.random();
-  if (temp >= 0.2) {
+  if (temp >= 0.25) {
     return faker.random.number({ min: 4, max: 5 });
   } else if (temp >= 0.1) {
     return 3;
@@ -50,16 +50,32 @@ const generateReviews = () => {
       helpfulYes = Math.floor(Math.random() * 40);
       helpfulNo = Math.floor(Math.random() * 10);
     }
+    const month = faker.date.month();
+    const day = faker.random.number({ min: 1, max: 31 });
+    const year = faker.random.number({ min: 2015, max: 2019 });
+    const date = new Date(`${month} ${day}, ${year}`);
+    let monthStr; let dayStr;
+    if (`${date.getMonth()}`.length === 1) {
+      monthStr = `0${date.getMonth()}`;
+    } else {
+      monthStr = `${date.getMonth()}`;
+    }
+    if (`${day}`.length === 1) {
+      dayStr = `0${day}`;
+    } else {
+      dayStr = `${day}`;
+    }
     const fakeReview = {
       rating,
       title,
-      body: faker.commerce.productAdjective(),
+      body: faker.lorem.sentences(Math.round(Math.random() * 3 + 1)),
       recommended,
-      name: faker.lorem.sentences(Math.round(Math.random() * 3 + 1)),
+      name: faker.internet.userName(),
       verified,
       helpfulYes,
       helpfulNo,
-      date: `${faker.date.month()} ${faker.random.number({ min: 1, max: 31 })}, ${faker.random.number({ min: 2015, max: 2019 })}`,
+      date: `${month} ${day}, ${year}`,
+      dateNum: Number(`${year}${monthStr}${dayStr}`),
       size,
       width,
       comfort,

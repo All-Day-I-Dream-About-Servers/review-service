@@ -14,6 +14,7 @@ CREATE TABLE reviews (
   helpfulYes INT NOT NULL,
   helpfulNo INT NOT NULL,
   date TEXT NOT NULL,
+  dateNum INT NOT NULL,
   size INT NOT NULL,
   width INT NOT NULL,
   comfort INT NOT NULL,
