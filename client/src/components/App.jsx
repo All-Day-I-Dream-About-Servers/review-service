@@ -70,15 +70,23 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="reviews-summary">
+        <div className="reviews-heading offset-xl-2 col-xl-20 offset-l-1 col-l-22 col-s-12 v-spacing-l">
           <div>
             <h3>RATINGS &amp; REVIEWS</h3>
           </div>
+        </div>
+        <div className="reviews-summary offset-xl-2 offset-l-1 col-l-7 col-s-12">
           <div>
-            <div className="reviews-heading">
-              <h4>{this.state.summary.avgRating}</h4>
-              <span>Insert stars</span>
-              <span>{this.state.summary.totalReviews} Reviews</span>
+            <div className="reviews-rating v-spacing-m">
+              <div className="totals">
+                <div className="overall-rating">
+                  <h4>{Math.round(this.state.summary.avgRating * 10) / 10}</h4>
+                </div>
+                <div className="overall-rating-stats">
+                  <span className="v-spacing-s">Insert stars</span>
+                  <span><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
+                </div>
+              </div>
             </div>
             <h5>RATING BREAKDOWN</h5>
             <ul>
@@ -98,7 +106,15 @@ export default class App extends React.Component {
             <div>QUALITY</div>
           </div>
         </div>
-        <div className="reviews-reviews">
+        <div className="reviews-reviews offset-l-1 col-xl-12 col-l-14 col-s-12">
+          <div className="reviews-sort-header">
+            <div>SORT ON</div>
+            <div>
+              <button type="button" className="reviews-sort-btn">newest</button>
+              <button type="button" className="reviews-sort-btn">helpful</button>
+              <button type="button" className="reviews-sort-btn">relevant</button>
+            </div>
+          </div>
           {this.state.reviews.map((review, index) => (
             <Review info={review} key={index} />
           ))}

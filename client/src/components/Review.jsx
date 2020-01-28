@@ -6,7 +6,7 @@ const Review = (props) => {
   const { info } = props;
   return (
     <div>
-      <div className="review=body">
+      <div className="review-body">
         <div>(stars)</div>
         <div>{info.date}</div>
         <h5>{info.title.toUpperCase()}</h5>
