@@ -16,6 +16,7 @@ const Review = sequelize.define('Review', {
   helpfulYes: { type: Sequelize.INTEGER, allowNull: false, defaultValue: 0 },
   helpfulNo: { type: Sequelize.INTEGER, allowNull: false, defaultValue: 0 },
   date: { type: Sequelize.STRING, allowNull: false },
+  dateNum: { type: Sequelize.INTEGER, allowNull: false },
   size: { type: Sequelize.INTEGER, allowNull: false },
   width: { type: Sequelize.INTEGER, allowNull: false },
   comfort: { type: Sequelize.INTEGER, allowNull: false },

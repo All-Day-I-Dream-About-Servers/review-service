@@ -2,19 +2,8 @@ const sequelize = require('sequelize');
 const Review = require('./index.js');
 
 module.exports = {
-  reviews: (limit, offset) => Review.findAll({ offset, limit }),
-  summary: () => {
-    Review.findAll({
-      attributes: [
-        [sequelize.fn('AVG', sequelize.col('rating')), 'ratingAvg'],
-        // [
-        //   ,
-        //   [sequelize.fn('AVG', sequelize.col('size')), 'sizeAvg'],
-        //   [sequelize.fn('AVG', sequelize.col('width')), 'widthAvg'],
-        //   [sequelize.fn('AVG', sequelize.col('comfort')), 'comfortAvg'],
-        //   [sequelize.fn('AVG', sequelize.col('quality')), 'qualityAvg'],
-        // ]
-      ],
-    });
-  },
+  reviewsByNewest: (limit) => Review.findAll({ order: [['dateNum', 'DESC']], limit }),
+  reviewsByHelpful: (limit) => Review.findAll({ order: [['helpfulYes', 'DESC']], limit }),
+  reviewsByRelevant: (limit) => Review.findAll({ where: { verified: true }, limit }),
+  summary: () => Review.findAll({}),
 };
