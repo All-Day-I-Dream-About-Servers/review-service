@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 const faker = require('faker');
 const Review = require('../index.js');
 
@@ -5,9 +6,12 @@ const Review = require('../index.js');
 const generateRating = () => {
   const temp = Math.random();
   if (temp >= 0.2) {
-    return faker.random.number({ min: 3, max: 5 });
+    return faker.random.number({ min: 4, max: 5 });
+  } else if (temp >= 0.1) {
+    return 3;
+  } else {
+    return faker.random.number({ min: 1, max: 2 });
   }
-  return faker.random.number({ min: 1, max: 3 });
 };
 
 const goodTitles = [
@@ -24,24 +28,20 @@ const badTitles = [
 const generateReviews = () => {
   for (let i = 0; i < 100; i += 1) {
     const rating = generateRating();
-    let title; let recommended; let size; let width; let comfort; let quality;
+    let title; let recommended;
     let verified = false;
     let helpfulYes = 0;
     let helpfulNo = 0;
+    const size = Math.round(faker.random.number({ min: 0, max: 10 }));
+    const width = Math.round(faker.random.number({ min: 0, max: 10 }));
+    const comfort = Math.round(faker.random.number({ min: 0, max: 10 }));
+    const quality = Math.round(faker.random.number({ min: 0, max: 10 }));
     if (rating >= 3) {
       title = goodTitles[Math.round(Math.random() * (goodTitles.length - 1))];
       recommended = true;
-      size = Math.round(faker.random.number({ min: 5, max: 10 }));
-      width = Math.round(faker.random.number({ min: 5, max: 10 }));
-      comfort = Math.round(faker.random.number({ min: 5, max: 10 }));
-      quality = Math.round(faker.random.number({ min: 5, max: 10 }));
     } else {
       title = badTitles[Math.round(Math.random() * (badTitles.length - 1))];
       recommended = false;
-      size = Math.round(faker.random.number({ min: 0, max: 5 }));
-      width = Math.round(faker.random.number({ min: 0, max: 5 }));
-      comfort = Math.round(faker.random.number({ min: 0, max: 5 }));
-      quality = Math.round(faker.random.number({ min: 0, max: 5 }));
     }
     if (Math.random() > 0.1) {
       verified = true;
