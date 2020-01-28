@@ -5,7 +5,7 @@ const Review = require('../index.js');
 
 const generateRating = () => {
   const temp = Math.random();
-  if (temp >= 0.25) {
+  if (temp >= 0.22) {
     return faker.random.number({ min: 4, max: 5 });
   } else if (temp >= 0.1) {
     return 3;
