@@ -1,8 +1,18 @@
 const models = require('../database/model.js');
 
 const controller = {
-  getReviews: (req, res) => {
-    models.reviews(Number(req.params.limit))
+  getReviewsByNewest: (req, res) => {
+    models.reviewsByNewest(Number(req.params.limit))
+      .then((data) => res.status(200).send(data))
+      .catch((err) => res.status(400).send(err));
+  },
+  getReviewsByHelpful: (req, res) => {
+    models.reviewsByHelpful(Number(req.params.limit))
+      .then((data) => res.status(200).send(data))
+      .catch((err) => res.status(400).send(err));
+  },
+  getReviewsByRelevant: (req, res) => {
+    models.reviewsByRelevant(Number(req.params.limit))
       .then((data) => res.status(200).send(data))
       .catch((err) => res.status(400).send(err));
   },

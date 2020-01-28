@@ -43,7 +43,7 @@ const generateReviews = () => {
       title = badTitles[Math.round(Math.random() * (badTitles.length - 1))];
       recommended = false;
     }
-    if (Math.random() > 0.1) {
+    if (Math.random() > 0.4) {
       verified = true;
     }
     if (Math.random() > 0.6) {

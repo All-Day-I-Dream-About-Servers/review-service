@@ -16,11 +16,11 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getReviews();
+    this.getReviewsByRecent();
   }
 
-  getReviews() {
-    axios.get(`/api/reviews/${this.state.displayCount}`)
+  getReviewsByRecent() {
+    axios.get(`/api/reviews/recent/${this.state.displayCount}`)
       .then((data) => {
         this.setState({
           reviews: data.data

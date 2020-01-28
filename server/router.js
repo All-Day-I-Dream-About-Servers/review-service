@@ -2,8 +2,16 @@ const router = require('express').Router();
 const controller = require('./controller.js');
 
 router
-  .route('/reviews/:limit')
-  .get(controller.getReviews);
+  .route('newest/:limit')
+  .get(controller.getReviewsByNewest);
+
+router
+  .route('helpful/:limit')
+  .get(controller.getReviewsByHelpful);
+
+router
+  .route('relevant/:limit')
+  .get(controller.getReviewsByRelevant);
 
 router
   .route('/overview')

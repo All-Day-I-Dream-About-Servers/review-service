@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 
-app.use('/api', router);
+app.use('/api/reviews', router);
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 // eslint-disable-next-line no-console
