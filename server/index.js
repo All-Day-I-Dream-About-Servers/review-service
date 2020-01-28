@@ -16,6 +16,6 @@ app.use(cors());
 
 app.use('/api/reviews', router);
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use('/', express.static(path.join(__dirname, '../client/dist')));
 // eslint-disable-next-line no-console
 app.listen(port, () => console.log(`Server listening on port ${port}`));

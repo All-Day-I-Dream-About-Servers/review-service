@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-console */
@@ -16,7 +17,7 @@ export default class App extends React.Component {
     };
 
     this.getReviewsSummary = this.getReviewsSummary.bind(this);
-    this.getReviewsByNewest = this.getReviews.bind(this);
+    this.getReviewsByNewest = this.getReviewsByNewest.bind(this);
     this.getReviewsByHelpful = this.getReviewsByHelpful.bind(this);
     this.getReviewsByRelevant = this.getReviewsByRelevant.bind(this);
   }
@@ -99,7 +100,7 @@ export default class App extends React.Component {
         </div>
         <div className="reviews-reviews">
           {this.state.reviews.map((review, index) => (
-            <Review info={review} key="review" index={index} />
+            <Review info={review} key={index} />
           ))}
           <div>
             <div>LOAD MORE</div>
