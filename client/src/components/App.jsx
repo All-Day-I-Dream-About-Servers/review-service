@@ -148,14 +148,60 @@ export default class App extends React.Component {
                 </li>
               </ul>
             </div>
-            <div className="recommendation-heading">
+            <div className="recommendation-heading v-spacing-m">
               <h4>{this.state.summary.percentRec}%</h4>
-              <span>of customers recommend this product</span>
+              <div className="recommendation-tagline">of customers recommend this product</div>
             </div>
-            <div>SIZE</div>
-            <div>WIDTH</div>
-            <div>COMFORT</div>
-            <div>QUALITY</div>
+            <div className="comparison-container">
+              <div className="comparison-title">SIZE</div>
+              <div className="comparison-bar">
+                <div className="comparison-bar-spacer1" />
+                <div className="comparison-bar-spacer2" />
+                <div className="comparison-bar-spacer3" />
+              </div>
+              <div className="comparison-text-wrapper">
+                <div className="comparison-text-left">TOO SMALL</div>
+                <div className="comparison-text-mid">PERFECT</div>
+                <div className="comparison-text-right">TOO LARGE</div>
+              </div>
+            </div>
+            <div className="comparison-container">
+              <div className="comparison-title">WIDTH</div>
+              <div className="comparison-bar">
+                <div className="comparison-bar-spacer1" />
+                <div className="comparison-bar-spacer2" />
+                <div className="comparison-bar-spacer3" />
+              </div>
+              <div className="comparison-text-wrapper">
+                <div className="comparison-text-left">TOO NARROW</div>
+                <div className="comparison-text-mid">PERFECT</div>
+                <div className="comparison-text-right">TOO WIDE</div>
+              </div>
+            </div>
+            <div className="comparison-container">
+              <div className="comparison-title">COMFORT</div>
+              <div className="comparison-bar">
+                <div className="comparison-bar-spacer1" />
+                <div className="comparison-bar-spacer2" />
+                <div className="comparison-bar-spacer3" />
+              </div>
+              <div className="comparison-text-wrapper">
+                <div className="comparison-text-left">UNCOMFORTABLE</div>
+                <div className="comparison-text-right">COMFORTABLE</div>
+              </div>
+            </div>
+            <div className="comparison-container">
+              <div className="comparison-title">QUALITY</div>
+              <div className="comparison-bar">
+                <div className="comparison-bar-spacer1" />
+                <div className="comparison-bar-spacer2" />
+                <div className="comparison-bar-spacer3" />
+              </div>
+              <div className="comparison-text-wrapper">
+                <div className="comparison-text-left">POOR</div>
+                <div className="comparison-text-right">PERFECT</div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="reviews-reviews offset-l-1 col-xl-12 col-l-14 col-s-12">

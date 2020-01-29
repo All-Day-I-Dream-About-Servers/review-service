@@ -262,3 +262,97 @@ ol, ul {
   line-height: 15px;
   letter-spacing: 2px;
 }
+
+
+/*
+  ==============================================
+    Recommendation %
+  ==============================================
+*/
+
+.recommendation-heading {
+  font-size: 44px;
+  line-height: 38px;
+  font-weight: 600;
+}
+
+.recommendation-heading h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.recommendation-tagline {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/*
+  ==============================================
+    Comparison Sliders
+  ==============================================
+*/
+
+.comparison-container {
+  margin-bottom: 20px;
+}
+
+.comparison-title {
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+
+.comparison-bar {
+  height: 4px;
+  margin: 0 10px;
+  flex-grow: 1;
+  background-color: #767677;
+}
+
+.comparison-bar-spacer1 {
+  position: relative;
+  left: 25%;
+  height: 100%;
+  width: 4px;
+  background-color: #fff;
+}
+
+.comparison-bar-spacer2 {
+  position: relative;
+  left: 50%;
+  bottom: 4px;
+  height: 100%;
+  width: 4px;
+  background-color: #fff;
+}
+
+.comparison-bar-spacer3 {
+  position: relative;
+  left: 75%;
+  bottom: 8px;
+  height: 100%;
+  width: 4px;
+  background-color: #fff;
+}
+
+.comparison-text-wrapper {
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comparison-text-left {
+  text-align: left;
+}
+
+.comparison-text-mid {
+  text-align: center;
+}
+
+.comparison-text-right {
+  text-align: right;
+}
