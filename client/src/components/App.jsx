@@ -68,6 +68,26 @@ export default class App extends React.Component {
   }
 
   render() {
+    const fiveStarBarWidth = {
+      width: `${(this.state.summary.totalFive / this.state.summary.totalReviews) * 100}%`,
+    };
+
+    const fourStarBarWidth = {
+      width: `${(this.state.summary.totalFour / this.state.summary.totalReviews) * 100}%`,
+    };
+
+    const threeStarBarWidth = {
+      width: `${(this.state.summary.totalThree / this.state.summary.totalReviews) * 100}%`,
+    };
+
+    const twoStarBarWidth = {
+      width: `${(this.state.summary.totalTwo / this.state.summary.totalReviews) * 100}%`,
+    };
+
+    const oneStarBarWidth = {
+      width: `${(this.state.summary.totalOne / this.state.summary.totalReviews) * 100}%`,
+    };
+
     return (
       <div>
         <div className="reviews-heading offset-xl-2 col-xl-20 offset-l-1 col-l-22 col-s-12 v-spacing-l">
@@ -84,18 +104,50 @@ export default class App extends React.Component {
                 </div>
                 <div className="overall-rating-stats">
                   <span className="v-spacing-s">Insert stars</span>
-                  <span><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
+                  <span className="review-body-s"><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
                 </div>
               </div>
             </div>
-            <h5>RATING BREAKDOWN</h5>
-            <ul>
-              <li>5 STARS</li>
-              <li>4 STARS</li>
-              <li>3 STARS</li>
-              <li>2 STARS</li>
-              <li>1 STARS</li>
-            </ul>
+            <h5 className="review-heading-s">RATING BREAKDOWN</h5>
+            <div className="sliders v-spacing-m">
+              <ul className="slider-list">
+                <li className="v-spacing-s">
+                  <div className="slider-text">5 STARS</div>
+                  <div className="star-bar">
+                    <div className="star-bar-filled" style={fiveStarBarWidth} />
+                  </div>
+                  <div className="review-count">{this.state.summary.totalFive}</div>
+                </li>
+                <li className="v-spacing-s">
+                  <div className="slider-text">4 STARS</div>
+                  <div className="star-bar">
+                    <div className="star-bar-filled" style={fourStarBarWidth} />
+                  </div>
+                  <div className="review-count">{this.state.summary.totalFour}</div>
+                </li>
+                <li className="v-spacing-s">
+                  <div className="slider-text">3 STARS</div>
+                  <div className="star-bar">
+                    <div className="star-bar-filled" style={threeStarBarWidth} />
+                  </div>
+                  <div className="review-count">{this.state.summary.totalThree}</div>
+                </li>
+                <li className="v-spacing-s">
+                  <div className="slider-text">2 STARS</div>
+                  <div className="star-bar">
+                    <div className="star-bar-filled" style={twoStarBarWidth} />
+                  </div>
+                  <div className="review-count">{this.state.summary.totalTwo}</div>
+                </li>
+                <li className="v-spacing-s">
+                  <div className="slider-text">1 STARS</div>
+                  <div className="star-bar">
+                    <div className="star-bar-filled" style={oneStarBarWidth} />
+                  </div>
+                  <div className="review-count">{this.state.summary.totalOne}</div>
+                </li>
+              </ul>
+            </div>
             <div className="recommendation-heading">
               <h4>{this.state.summary.percentRec}%</h4>
               <span>of customers recommend this product</span>

@@ -57,6 +57,32 @@ table {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+  text-transform: none;
+}
+
+.review-heading,
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+ol, ul {
+  list-style: none;
+}
+
 /*
   ==============================================
     Column/Heading Spacing
@@ -154,4 +180,85 @@ table {
   margin-left: 10px;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.review-heading-s {
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.review-body-s {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
+/*
+  ==============================================
+    Sliders
+  ==============================================
+*/
+
+.sliders {
+  display: flex;
+  align-items: center;
+  color: #000;
+  background-color: #fff;
+  min-width: 250px;
+  margin-top: -1px;
+  float: none;
+  margin-left: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebedee;
+}
+
+.slider-list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.slider-list li {
+  cursor: pointer;
+  padding: 1px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-text {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  background-color: transparent;
+  color: #000;
+  line-height: 17px;
+  min-height: 0;
+  padding: 2px 2px 3px;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.slider-text:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.star-bar {
+  height: 4px;
+  border-radius: 4px;
+  margin: 0 10px;
+  flex-grow: 1;
+  background-color: #767677;
+}
+
+.star-bar-filled {
+  height: 100%;
+  background-color: #2ada71;
+}
+
+.review-count {
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 2px;
 }
