@@ -336,6 +336,16 @@ ol, ul {
   background-color: #fff;
 }
 
+.comparison-triangle {
+  position: relative;
+  bottom: 18px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #2ada71;
+}
+
 .comparison-text-wrapper {
   font-size: 11px;
   line-height: 15px;
@@ -343,6 +353,7 @@ ol, ul {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .comparison-text-left {

@@ -88,6 +88,22 @@ export default class App extends React.Component {
       width: `${(this.state.summary.totalOne / this.state.summary.totalReviews) * 100}%`,
     };
 
+    const sizeTrianglePosition = {
+      left: `${(this.state.summary.avgSize / 10) * 100}%`,
+    };
+
+    const widthTrianglePosition = {
+      left: `${(this.state.summary.avgWidth / 10) * 100}%`,
+    };
+
+    const comfortTrianglePosition = {
+      left: `${(this.state.summary.avgComfort / 10) * 100}%`,
+    };
+
+    const qualityTrianglePosition = {
+      left: `${(this.state.summary.avgQuality / 10) * 100}%`,
+    };
+
     return (
       <div>
         <div className="reviews-heading offset-xl-2 col-xl-20 offset-l-1 col-l-22 col-s-12 v-spacing-l">
@@ -158,6 +174,7 @@ export default class App extends React.Component {
                 <div className="comparison-bar-spacer1" />
                 <div className="comparison-bar-spacer2" />
                 <div className="comparison-bar-spacer3" />
+                <div className="comparison-triangle" style={sizeTrianglePosition} />
               </div>
               <div className="comparison-text-wrapper">
                 <div className="comparison-text-left">TOO SMALL</div>
@@ -171,6 +188,7 @@ export default class App extends React.Component {
                 <div className="comparison-bar-spacer1" />
                 <div className="comparison-bar-spacer2" />
                 <div className="comparison-bar-spacer3" />
+                <div className="comparison-triangle" style={widthTrianglePosition} />
               </div>
               <div className="comparison-text-wrapper">
                 <div className="comparison-text-left">TOO NARROW</div>
@@ -184,6 +202,7 @@ export default class App extends React.Component {
                 <div className="comparison-bar-spacer1" />
                 <div className="comparison-bar-spacer2" />
                 <div className="comparison-bar-spacer3" />
+                <div className="comparison-triangle" style={comfortTrianglePosition} />
               </div>
               <div className="comparison-text-wrapper">
                 <div className="comparison-text-left">UNCOMFORTABLE</div>
@@ -196,6 +215,7 @@ export default class App extends React.Component {
                 <div className="comparison-bar-spacer1" />
                 <div className="comparison-bar-spacer2" />
                 <div className="comparison-bar-spacer3" />
+                <div className="comparison-triangle" style={qualityTrianglePosition} />
               </div>
               <div className="comparison-text-wrapper">
                 <div className="comparison-text-left">POOR</div>
