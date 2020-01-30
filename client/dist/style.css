@@ -502,3 +502,43 @@ ol, ul {
   margin: 40px 0;
   border-bottom: 1px solid #767677;
 }
+
+.review-bottom-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.load-more-btn {
+  flex: 1 50%;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  border: none;
+  text-decoration: underline;
+}
+
+.load-more-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.write-review-container {
+  flex: 1 50%;
+  height: 50px;
+  border: 1px solid #000;
+}
+
+.write-review-btn {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  height: 50px;
+  width: 101%;
+  padding: 0 21px;
+  background-color: #000;
+  color: #fff;
+  transform: translate(-3px, -3px);
+}

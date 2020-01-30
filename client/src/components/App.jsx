@@ -295,9 +295,11 @@ export default class App extends React.Component {
           {this.state.reviews.map((review, index) => (
             <Review info={review} key={index} />
           ))}
-          <div>
-            <div>LOAD MORE</div>
-            <div>WRITE A REVIEW</div>
+          <div className="review-bottom-btns">
+            <button type="button" className="load-more-btn">LOAD MORE</button>
+            <div className="write-review-container">
+              <button type="button" className="write-review-btn">WRITE A REVIEW <span><img src="right-arrow-white.png" height="18px" color="#fff" alt="" /></span></button>
+            </div>
           </div>
         </div>
       </div>
