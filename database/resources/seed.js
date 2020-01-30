@@ -34,13 +34,16 @@ const generateReviews = () => {
     let helpfulNo = 0;
     const size = Math.round(faker.random.number({ min: 0, max: 10 }));
     const width = Math.round(faker.random.number({ min: 0, max: 10 }));
-    const comfort = Math.round(faker.random.number({ min: 0, max: 10 }));
-    const quality = Math.round(faker.random.number({ min: 0, max: 10 }));
+    let comfort; let quality;
     if (rating >= 3) {
       title = goodTitles[Math.round(Math.random() * (goodTitles.length - 1))];
+      comfort = Math.round(faker.random.number({ min: 7, max: 10 }));
+      quality = Math.round(faker.random.number({ min: 7, max: 10 }));
       recommended = true;
     } else {
       title = badTitles[Math.round(Math.random() * (badTitles.length - 1))];
+      comfort = Math.round(faker.random.number({ min: 0, max: 4 }));
+      quality = Math.round(faker.random.number({ min: 0, max: 4 }));
       recommended = false;
     }
     if (Math.random() > 0.4) {
