@@ -402,3 +402,103 @@ ol, ul {
 .comparison-text-right {
   text-align: right;
 }
+
+
+/*
+  ==============================================
+    Reviews
+  ==============================================
+*/
+
+.reviews-section-title {
+  font-size: 13px;
+  line-height: 17px;
+  letter-spacing: 2px;
+}
+
+.reviews-sort-buttons button:focus{
+  outline: none;
+}
+
+.reviews-sort-btn {
+  font-size: 14px;
+  align-items: center;
+  border: 1px solid #767677;
+  cursor: pointer;
+  height: 40px;
+  min-width: 40px;
+  line-height: 1.1;
+  margin: 0 5px 5px 0;
+  padding: 0 14px;
+  text-align: center;
+}
+
+.reviews-sort-btn:hover {
+  border-bottom: 2px solid #000;
+}
+
+.reviews-sort-btn-active {
+  font-weight: 700;
+  border: 1px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.review-rating {
+  float: left;
+}
+
+.review-date {
+  float: right;
+  color: #767677;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 14px;
+}
+
+.review-title {
+  clear: both;
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.review-body {
+  clear: both;
+}
+
+.review-lower-text {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 14px;
+}
+
+.review-username {
+  font-weight: 700;
+}
+
+.review-verified {
+  color: #767677;
+}
+
+.review-replies {
+  margin-left: 10px;
+}
+
+.review-reply-text{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.review-reply-text:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.review-reply-count {
+  color: #767677;
+}
+
+.reviews-divider {
+  margin: 40px 0;
+  border-bottom: 1px solid #767677;
+}
