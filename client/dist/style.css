@@ -182,9 +182,17 @@ ol, ul {
   align-items: flex-start;
 }
 
+.overall-stars-pos {
+  position: relative;
+  bottom: 10px;
+}
+
 .overall-stars {
   height: 20px;
+  margin-left: 10px;
   position: relative;
+  top: 0;
+  left: 0;
 }
 
 .overall-stars-display {

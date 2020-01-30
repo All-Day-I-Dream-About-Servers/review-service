@@ -123,8 +123,8 @@ export default class App extends React.Component {
                   <h4>{(Math.round(this.state.summary.avgRating * 10) / 10).toFixed(1)}</h4>
                 </div>
                 <div className="review-body-s v-spacing-s overall-stars">
-                  <div>
-                    <span className="overall-stars-display"><span style={overallRatingFill}></span></span>
+                  <div className="overall-stars-pos">
+                    <span className="overall-stars-display"><span style={overallRatingFill} /></span>
                   </div>
                   <span className="review-body-s"><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
                 </div>
