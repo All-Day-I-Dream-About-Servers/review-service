@@ -104,6 +104,10 @@ export default class App extends React.Component {
       left: `${(this.state.summary.avgQuality / 10) * 100}%`,
     };
 
+    const overallRatingFill = {
+      width: `${(Math.round(this.state.summary.avgRating * 10) / 10) * 20}%`,
+    };
+
     return (
       <div>
         <div className="reviews-heading offset-xl-2 col-xl-20 offset-l-1 col-l-22 col-s-12 v-spacing-l">
@@ -116,10 +120,12 @@ export default class App extends React.Component {
             <div className="reviews-rating v-spacing-m">
               <div className="totals">
                 <div className="overall-rating">
-                  <h4>{Math.round(this.state.summary.avgRating * 10) / 10}</h4>
+                  <h4>{(Math.round(this.state.summary.avgRating * 10) / 10).toFixed(1)}</h4>
                 </div>
-                <div className="overall-rating-stats">
-                  <span className="v-spacing-s">Insert stars</span>
+                <div className="review-body-s v-spacing-s overall-stars">
+                  <div>
+                    <span className="overall-stars-display"><span style={overallRatingFill}></span></span>
+                  </div>
                   <span className="review-body-s"><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
                 </div>
               </div>

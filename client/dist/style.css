@@ -182,6 +182,33 @@ ol, ul {
   align-items: flex-start;
 }
 
+.overall-stars {
+  height: 20px;
+  position: relative;
+}
+
+.overall-stars-display {
+  display: inline-block;
+  position: relative;
+}
+
+.overall-stars-display::before {
+  content: "☆☆☆☆☆";
+  display: block;
+}
+
+.overall-stars-display span::before {
+  content: "★★★★★";
+  display: block;
+}
+
+.overall-stars-display span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
 .review-heading-s {
   font-size: 18px;
   line-height: 16px;
