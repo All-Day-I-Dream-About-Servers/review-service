@@ -17,12 +17,17 @@ const Review = (props) => {
     verifiedUser = ' - Verified Purchaser';
   }
 
+  let title = null;
+  if (info.title) {
+    title = info.title.toUpperCase();
+  }
+
   return (
     <div>
       <div className="review-body">
         <div className="review-rating">{'★'.repeat(info.rating) + '☆'.repeat(5 - info.rating)}</div>
         <div className="review-date">{info.date}</div>
-        <h5 className="review-title v-spacing-s">{info.title.toUpperCase()}</h5>
+        <h5 className="review-title v-spacing-s">{title}</h5>
         <div className="review-body v-spacing-m">{info.body}</div>
         <div className="review-lower-text v-spacing-s"><img src={imgSrc} height="12px" alt="" />{recommendText}</div>
         <div className="review-lower-text">
