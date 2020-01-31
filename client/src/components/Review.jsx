@@ -4,26 +4,44 @@ import React from 'react';
 
 const Review = (props) => {
   const { info } = props;
+
+  let recommendText = null;
+  let imgSrc = null;
+  if (info.recommended === true) {
+    recommendText = ' I recommend this product';
+    imgSrc = 'checkmark.png';
+  }
+
+  let verifiedUser = null;
+  if (info.verified === true) {
+    verifiedUser = ' - Verified Purchaser';
+  }
+
   return (
     <div>
       <div className="review-body">
-        <div>(stars)</div>
-        <div>{info.date}</div>
-        <h5>{info.title.toUpperCase()}</h5>
-        <div>{info.body}</div>
-        <div>(I recommend...)</div>
-        <div>
-          <span>{info.name}</span>
-          <span>(verified purchaser)</span>
+        <div className="review-rating">{'★'.repeat(info.rating) + '☆'.repeat(5 - info.rating)}</div>
+        <div className="review-date">{info.date}</div>
+        <h5 className="review-title v-spacing-s">{info.title.toUpperCase()}</h5>
+        <div className="review-body v-spacing-m">{info.body}</div>
+        <div className="review-lower-text v-spacing-s"><img src={imgSrc} height="12px" alt="" />{recommendText}</div>
+        <div className="review-lower-text">
+          <span className="review-username">{info.name}</span>
+          <span className="review-verified">{verifiedUser}</span>
         </div>
       </div>
-      <div className="review-replies">
+      <div className="review-lower-text v-spacing-l">
         <span>Was this review helpful?</span>
-        <span>Yes</span>
-        <span>({info.helpfulYes})</span>
-        <span>No</span>
-        <span>({info.helpfulNo})</span>
+        <span className="review-replies">
+          <span className="review-reply-text">Yes</span>
+          <span className="review-reply-count"> ({info.helpfulYes})</span>
+        </span>
+        <span className="review-replies">
+          <span className="review-reply-text">No</span>
+          <span className="review-reply-count"> ({info.helpfulNo})</span>
+        </span>
       </div>
+      <div className="reviews-divider" />
     </div>
   );
 };

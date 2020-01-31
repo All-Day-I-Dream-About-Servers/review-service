@@ -14,12 +14,22 @@ export default class App extends React.Component {
       summary: {},
       displayCount: 2,
       reviews: [],
+      nBtnActive: {
+        fontWeight: '700',
+        border: '1px solid #000',
+        borderBottom: '2px solid #000',
+      },
+      HbtnActive: null,
+      rBtnActive: null,
     };
 
     this.getReviewsSummary = this.getReviewsSummary.bind(this);
     this.getReviewsByNewest = this.getReviewsByNewest.bind(this);
     this.getReviewsByHelpful = this.getReviewsByHelpful.bind(this);
     this.getReviewsByRelevant = this.getReviewsByRelevant.bind(this);
+    this.newestClickHandler = this.newestClickHandler.bind(this);
+    this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
+    this.relevantClickHandler = this.relevantClickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +75,48 @@ export default class App extends React.Component {
         });
       })
       .catch((err) => console.error(err));
+  }
+
+  newestClickHandler(e) {
+    e.preventDefault();
+    this.getReviewsByNewest();
+    this.setState({
+      nBtnActive: {
+        fontWeight: '700',
+        border: '1px solid #000',
+        borderBottom: '2px solid #000',
+      },
+      HbtnActive: null,
+      rBtnActive: null,
+    });
+  }
+
+  helpfulClickHandler(e) {
+    e.preventDefault();
+    this.getReviewsByHelpful();
+    this.setState({
+      nBtnActive: null,
+      HbtnActive: {
+        fontWeight: '700',
+        border: '1px solid #000',
+        borderBottom: '2px solid #000',
+      },
+      rBtnActive: null,
+    });
+  }
+
+  relevantClickHandler(e) {
+    e.preventDefault();
+    this.getReviewsByRelevant();
+    this.setState({
+      nBtnActive: null,
+      HbtnActive: null,
+      rBtnActive: {
+        fontWeight: '700',
+        border: '1px solid #000',
+        borderBottom: '2px solid #000',
+      },
+    });
   }
 
   render() {
@@ -123,8 +175,8 @@ export default class App extends React.Component {
                   <h4>{(Math.round(this.state.summary.avgRating * 10) / 10).toFixed(1)}</h4>
                 </div>
                 <div className="review-body-s v-spacing-s overall-stars">
-                  <div>
-                    <span className="overall-stars-display"><span style={overallRatingFill}></span></span>
+                  <div className="overall-stars-pos">
+                    <span className="overall-stars-display"><span style={overallRatingFill} /></span>
                   </div>
                   <span className="review-body-s"><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
                 </div>
@@ -232,19 +284,24 @@ export default class App extends React.Component {
         </div>
         <div className="reviews-reviews offset-l-1 col-xl-12 col-l-14 col-s-12">
           <div className="reviews-sort-header">
-            <div>SORT ON</div>
-            <div>
-              <button type="button" className="reviews-sort-btn">newest</button>
-              <button type="button" className="reviews-sort-btn">helpful</button>
-              <button type="button" className="reviews-sort-btn">relevant</button>
+            <div className="reviews-section-title v-spacing-s">SORT ON</div>
+            <div className="reviews-sort-buttons">
+              <button type="button" className="reviews-sort-btn" style={this.state.nBtnActive} onClick={this.newestClickHandler}>newest</button>
+              <button type="button" className="reviews-sort-btn" style={this.state.HbtnActive} onClick={this.helpfulClickHandler}>helpful</button>
+              <button type="button" className="reviews-sort-btn" style={this.state.rBtnActive} onClick={this.relevantClickHandler}>relevant</button>
             </div>
+            <div className="v-spacing-l" />
           </div>
           {this.state.reviews.map((review, index) => (
             <Review info={review} key={index} />
           ))}
-          <div>
-            <div>LOAD MORE</div>
-            <div>WRITE A REVIEW</div>
+          <div className="review-bottom-btns">
+            <div className="load-more-btn-container">
+              <button type="button" className="load-more-btn">LOAD MORE</button>
+            </div>
+            <div className="write-review-container">
+              <button type="button" className="write-review-btn">WRITE A REVIEW <svg className="write-review-btn-icon"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" strokeMmiterlimit="10" strokeWidth="2" /> </svg> </button>
+            </div>
           </div>
         </div>
       </div>
