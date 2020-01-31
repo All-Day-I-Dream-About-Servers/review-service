@@ -296,9 +296,11 @@ export default class App extends React.Component {
             <Review info={review} key={index} />
           ))}
           <div className="review-bottom-btns">
-            <button type="button" className="load-more-btn">LOAD MORE</button>
+            <div className="load-more-btn-container">
+              <button type="button" className="load-more-btn">LOAD MORE</button>
+            </div>
             <div className="write-review-container">
-              <button type="button" className="write-review-btn">WRITE A REVIEW <span><img src="right-arrow-white.png" height="18px" color="#fff" alt="" /></span></button>
+              <button type="button" className="write-review-btn">WRITE A REVIEW <svg className="write-review-btn-icon"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" strokeMmiterlimit="10" strokeWidth="2" /> </svg> </button>
             </div>
           </div>
         </div>

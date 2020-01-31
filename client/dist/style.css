@@ -464,6 +464,7 @@ ol, ul {
 
 .review-body {
   clear: both;
+  font-weight: 300; /* looks more like adidas site with 300 vs 400/normal */
 }
 
 .review-lower-text {
@@ -510,8 +511,15 @@ ol, ul {
   align-items: center;
 }
 
-.load-more-btn {
+.review-bottom-btns button:focus{
+  outline: none;
+}
+
+.load-more-btn-container {
   flex: 1 50%;
+}
+
+.load-more-btn {
   text-align: left;
   font-size: 13px;
   letter-spacing: 2px;
@@ -535,10 +543,22 @@ ol, ul {
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 700;
+  text-align: left;
   height: 50px;
   width: 101%;
   padding: 0 21px;
   background-color: #000;
   color: #fff;
   transform: translate(-3px, -3px);
+}
+
+.write-review-btn:hover {
+  color: #767677;
+}
+
+.write-review-btn-icon {
+  fill: #fff;
+  height: 16px;
+  width: 24px;
+  margin-left: 50px;
 }
