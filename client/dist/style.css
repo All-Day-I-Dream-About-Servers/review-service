@@ -89,6 +89,10 @@ ol, ul {
   ==============================================
 */
 
+.review-module-bottom-spacing {
+  margin-bottom: 80px;
+}
+
 [class*=col-s],
 [class*=col-l],
 [class*=col-xl] {
