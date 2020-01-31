@@ -1,4 +1,4 @@
-const sequelize = require('sequelize');
+const { Op } = require('sequelize');
 const Review = require('./index.js');
 
 module.exports = {
