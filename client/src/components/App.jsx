@@ -30,6 +30,7 @@ export default class App extends React.Component {
     this.newestClickHandler = this.newestClickHandler.bind(this);
     this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
     this.relevantClickHandler = this.relevantClickHandler.bind(this);
+    this.loadMoreReviews = this.loadMoreReviews.bind(this);
   }
 
   componentDidMount() {
@@ -116,6 +117,22 @@ export default class App extends React.Component {
         border: '1px solid #000',
         borderBottom: '2px solid #000',
       },
+    });
+  }
+
+  loadMoreReviews(e) {
+    e.preventDefault();
+    this.setState((prevState) => {
+      const temp = prevState.displayCount + 5;
+      return { displayCount: temp };
+    }, () => {
+      if (this.state.nBtnActive) {
+        this.getReviewsByNewest();
+      } else if (this.state.HbtnActive) {
+        this.getReviewsByHelpful();
+      } else {
+        this.getReviewsByRelevant();
+      }
     });
   }
 
@@ -297,12 +314,13 @@ export default class App extends React.Component {
           ))}
           <div className="review-bottom-btns">
             <div className="load-more-btn-container">
-              <button type="button" className="load-more-btn">LOAD MORE</button>
+              <button type="button" className="load-more-btn" onClick={this.loadMoreReviews}>LOAD MORE</button>
             </div>
             <div className="write-review-container">
-              <button type="button" className="write-review-btn">WRITE A REVIEW <svg className="write-review-btn-icon"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" strokeMmiterlimit="10" strokeWidth="2" /> </svg> </button>
+              <button type="button" className="write-review-btn">WRITE A REVIEW <svg className="write-review-btn-icon"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" /> </svg> </button>
             </div>
           </div>
+          <div className="review-module-bottom-spacing" />
         </div>
       </div>
     );

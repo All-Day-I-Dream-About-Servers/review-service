@@ -89,6 +89,10 @@ ol, ul {
   ==============================================
 */
 
+.review-module-bottom-spacing {
+  margin-bottom: 80px;
+}
+
 [class*=col-s],
 [class*=col-l],
 [class*=col-xl] {
@@ -557,8 +561,7 @@ ol, ul {
 }
 
 .write-review-btn-icon {
-  fill: #fff;
+  float: right;
   height: 16px;
   width: 24px;
-  margin-left: 50px;
 }
