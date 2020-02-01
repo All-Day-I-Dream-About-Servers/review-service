@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import React from 'react';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+// import toJson from 'enzyme-to-json';
 import App from '../client/src/components/App';
 import Review from '../client/src/components/Review';
 
