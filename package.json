@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "test": "react-scripts test",
+    "test": "jest",
     "start": "nodemon ./server/index.js",
     "build": "webpack -d --w",
     "seed": "node ./database/resources/seed.js"
