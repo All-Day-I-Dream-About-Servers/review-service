@@ -224,6 +224,7 @@ ol, ul {
 .review-heading-s {
   font-size: 18px;
   line-height: 16px;
+  margin-top: 0;
 }
 
 .review-body-s {
@@ -234,7 +235,44 @@ ol, ul {
 
 /*
   ==============================================
-    Sliders
+    Review filters
+  ==============================================
+*/
+
+.review-filter-status {
+  text-align: center;
+}
+
+.review-filter-list {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.review-filter-list-item {
+  display: inline;
+  font-weight: 700;
+  padding-right: 5px;
+}
+
+.remove-filter-btn {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 20px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.remove-filter-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+
+/*
+  ==============================================
+    Rating Bars
   ==============================================
 */
 

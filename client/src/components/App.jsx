@@ -1,3 +1,7 @@
+/* eslint-disable react/sort-comp */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/destructuring-assignment */
@@ -21,6 +25,7 @@ export default class App extends React.Component {
       },
       HbtnActive: null,
       rBtnActive: null,
+      filter: [],
     };
 
     this.getReviewsSummary = this.getReviewsSummary.bind(this);
@@ -31,6 +36,8 @@ export default class App extends React.Component {
     this.helpfulClickHandler = this.helpfulClickHandler.bind(this);
     this.relevantClickHandler = this.relevantClickHandler.bind(this);
     this.loadMoreReviews = this.loadMoreReviews.bind(this);
+    this.filterByRating = this.filterByRating.bind(this);
+    this.removeAllFilters = this.removeAllFilters.bind(this);
   }
 
   componentDidMount() {
@@ -49,7 +56,7 @@ export default class App extends React.Component {
   }
 
   getReviewsByNewest() {
-    axios.get(`/api/reviews/newest/${this.state.displayCount}`)
+    axios.get(`/api/reviews/newest/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
         this.setState({
           reviews: data.data,
@@ -59,7 +66,7 @@ export default class App extends React.Component {
   }
 
   getReviewsByHelpful() {
-    axios.get(`/api/reviews/helpful/${this.state.displayCount}`)
+    axios.get(`/api/reviews/helpful/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
         this.setState({
           reviews: data.data,
@@ -69,7 +76,7 @@ export default class App extends React.Component {
   }
 
   getReviewsByRelevant() {
-    axios.get(`/api/reviews/relevant/${this.state.displayCount}`)
+    axios.get(`/api/reviews/relevant/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
         this.setState({
           reviews: data.data,
@@ -125,6 +132,44 @@ export default class App extends React.Component {
     this.setState((prevState) => {
       const temp = prevState.displayCount + 5;
       return { displayCount: temp };
+    }, () => {
+      if (this.state.nBtnActive) {
+        this.getReviewsByNewest();
+      } else if (this.state.HbtnActive) {
+        this.getReviewsByHelpful();
+      } else {
+        this.getReviewsByRelevant();
+      }
+    });
+  }
+
+  filterByRating(e) {
+    e.preventDefault();
+    e.persist();
+    this.setState((prevState) => {
+      const { filter } = prevState;
+      const index = filter.indexOf(e.target.id);
+      if (index > -1) {
+        filter.splice(index, 1);
+      } else {
+        filter.push(e.target.id);
+      }
+      return { filter };
+    }, () => {
+      if (this.state.nBtnActive) {
+        this.getReviewsByNewest();
+      } else if (this.state.HbtnActive) {
+        this.getReviewsByHelpful();
+      } else {
+        this.getReviewsByRelevant();
+      }
+    });
+  }
+
+  removeAllFilters(e) {
+    e.preventDefault();
+    this.setState({
+      filter: [],
     }, () => {
       if (this.state.nBtnActive) {
         this.getReviewsByNewest();
@@ -200,42 +245,50 @@ export default class App extends React.Component {
               </div>
             </div>
             <h5 className="review-heading-s">RATING BREAKDOWN</h5>
+            {this.state.filter.length > 0 && (
+              <div className="review-filter-status col-s-12">Showing reviews:
+                <ul className="review-filter-list">
+                  {this.state.filter.map((num) => <li className="review-filter-list-item">{num} STARS</li>)}
+                </ul>
+                <div className="remove-filter-btn" onClick={this.removeAllFilters}>Remove all filters</div>
+              </div>
+            )}
             <div className="sliders v-spacing-m">
               <ul className="slider-list">
-                <li className="v-spacing-s">
-                  <div className="slider-text">5 STARS</div>
-                  <div className="star-bar">
-                    <div className="star-bar-filled" style={fiveStarBarWidth} />
+                <li className="v-spacing-s" id={5} onClick={this.filterByRating}>
+                  <div className="slider-text" id={5}>5 STARS</div>
+                  <div className="star-bar" id={5}>
+                    <div className="star-bar-filled" id={5} style={fiveStarBarWidth} />
                   </div>
-                  <div className="review-count">{this.state.summary.totalFive}</div>
+                  <div className="review-count" id={5}>{this.state.summary.totalFive}</div>
                 </li>
-                <li className="v-spacing-s">
-                  <div className="slider-text">4 STARS</div>
-                  <div className="star-bar">
-                    <div className="star-bar-filled" style={fourStarBarWidth} />
+                <li className="v-spacing-s" id={4} onClick={this.filterByRating}>
+                  <div className="slider-text" id={4}>4 STARS</div>
+                  <div className="star-bar" id={4}>
+                    <div className="star-bar-filled" id={4} style={fourStarBarWidth} />
                   </div>
-                  <div className="review-count">{this.state.summary.totalFour}</div>
+                  <div className="review-count" id={4}>{this.state.summary.totalFour}</div>
                 </li>
-                <li className="v-spacing-s">
-                  <div className="slider-text">3 STARS</div>
-                  <div className="star-bar">
-                    <div className="star-bar-filled" style={threeStarBarWidth} />
+                <li className="v-spacing-s" id={3} onClick={this.filterByRating}>
+                  <div className="slider-text" id={3}>3 STARS</div>
+                  <div className="star-bar" id={3}>
+                    <div className="star-bar-filled" id={3} style={threeStarBarWidth} />
                   </div>
-                  <div className="review-count">{this.state.summary.totalThree}</div>
+                  <div className="review-count" id={3}>{this.state.summary.totalThree}</div>
                 </li>
-                <li className="v-spacing-s">
-                  <div className="slider-text">2 STARS</div>
-                  <div className="star-bar">
-                    <div className="star-bar-filled" style={twoStarBarWidth} />
+                <li className="v-spacing-s" id={2} onClick={this.filterByRating}>
+                  <div className="slider-text" id={2}>2 STARS</div>
+                  <div className="star-bar" id={2}>
+                    <div className="star-bar-filled" id={2} style={twoStarBarWidth} />
                   </div>
-                  <div className="review-count">{this.state.summary.totalTwo}</div>
+                  <div className="review-count" id={2}>{this.state.summary.totalTwo}</div>
                 </li>
-                <li className="v-spacing-s">
-                  <div className="slider-text">1 STARS</div>
-                  <div className="star-bar">
-                    <div className="star-bar-filled" style={oneStarBarWidth} />
+                <li className="v-spacing-s" id={1} onClick={this.filterByRating}>
+                  <div className="slider-text" id={1}>1 STARS</div>
+                  <div className="star-bar" id={1}>
+                    <div className="star-bar-filled" id={1} style={oneStarBarWidth} />
                   </div>
-                  <div className="review-count">{this.state.summary.totalOne}</div>
+                  <div className="review-count" id={1}>{this.state.summary.totalOne}</div>
                 </li>
               </ul>
             </div>
