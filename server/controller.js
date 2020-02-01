@@ -2,19 +2,37 @@ const models = require('../database/model.js');
 
 const controller = {
   getReviewsByNewest: (req, res) => {
-    models.reviewsByNewest(Number(req.params.limit))
-      .then((data) => res.status(200).send(data))
-      .catch((err) => res.status(400).send(err));
+    if (req.body.filter) {
+      models.reviewsByNewest(Number(req.params.limit), req.body.filter)
+        .then((data) => res.status(200).send(data))
+        .catch((err) => res.status(400).send(err));
+    } else {
+      models.reviewsByNewest(Number(req.params.limit), [1, 2, 3, 4, 5])
+        .then((data) => res.status(200).send(data))
+        .catch((err) => res.status(400).send(err));
+    }
   },
   getReviewsByHelpful: (req, res) => {
-    models.reviewsByHelpful(Number(req.params.limit))
-      .then((data) => res.status(200).send(data))
-      .catch((err) => res.status(400).send(err));
+    if (req.body.filter) {
+      models.reviewsByHelpful(Number(req.params.limit), req.body.filter)
+        .then((data) => res.status(200).send(data))
+        .catch((err) => res.status(400).send(err));
+    } else {
+      models.reviewsByHelpful(Number(req.params.limit), [1, 2, 3, 4, 5])
+        .then((data) => res.status(200).send(data))
+        .catch((err) => res.status(400).send(err));
+    }
   },
   getReviewsByRelevant: (req, res) => {
-    models.reviewsByRelevant(Number(req.params.limit))
-      .then((data) => res.status(200).send(data))
-      .catch((err) => res.status(400).send(err));
+    if (req.body.filter) {
+      models.reviewsByRelevant(Number(req.params.limit), req.body.filter)
+        .then((data) => res.status(200).send(data))
+        .catch((err) => res.status(400).send(err));
+    } else {
+      models.reviewsByRelevant(Number(req.params.limit), [1, 2, 3, 4, 5])
+        .then((data) => res.status(200).send(data))
+        .catch((err) => res.status(400).send(err));
+    }
   },
   getSummary: (req, res) => {
     models.summary()

@@ -21,6 +21,7 @@ export default class App extends React.Component {
       },
       HbtnActive: null,
       rBtnActive: null,
+      filter: null,
     };
 
     this.getReviewsSummary = this.getReviewsSummary.bind(this);
