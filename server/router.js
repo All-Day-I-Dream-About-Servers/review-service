@@ -2,15 +2,15 @@ const router = require('express').Router();
 const controller = require('./controller.js');
 
 router
-  .route('/newest/:limit')
+  .route('/newest/:limit/:filter')
   .get(controller.getReviewsByNewest);
 
 router
-  .route('/helpful/:limit')
+  .route('/helpful/:limit/:filter')
   .get(controller.getReviewsByHelpful);
 
 router
-  .route('/relevant/:limit')
+  .route('/relevant/:limit/:filter')
   .get(controller.getReviewsByRelevant);
 
 router

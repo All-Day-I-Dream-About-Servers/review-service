@@ -2,8 +2,9 @@ const models = require('../database/model.js');
 
 const controller = {
   getReviewsByNewest: (req, res) => {
-    if (req.body.filter) {
-      models.reviewsByNewest(Number(req.params.limit), req.body.filter)
+    const filter = JSON.parse(req.params.filter);
+    if (filter.length) {
+      models.reviewsByNewest(Number(req.params.limit), filter)
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     } else {
@@ -13,8 +14,9 @@ const controller = {
     }
   },
   getReviewsByHelpful: (req, res) => {
-    if (req.body.filter) {
-      models.reviewsByHelpful(Number(req.params.limit), req.body.filter)
+    const filter = JSON.parse(req.params.filter);
+    if (filter.length) {
+      models.reviewsByHelpful(Number(req.params.limit), filter)
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     } else {
@@ -24,8 +26,9 @@ const controller = {
     }
   },
   getReviewsByRelevant: (req, res) => {
-    if (req.body.filter) {
-      models.reviewsByRelevant(Number(req.params.limit), req.body.filter)
+    const filter = JSON.parse(req.params.filter);
+    if (filter.length) {
+      models.reviewsByRelevant(Number(req.params.limit), filter)
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     } else {
