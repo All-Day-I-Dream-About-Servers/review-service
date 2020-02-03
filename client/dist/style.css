@@ -1,6 +1,6 @@
 /*
   ==============================================
-    Reset
+    Reset/Global Styles
   ==============================================
 */
 
@@ -158,7 +158,6 @@ ol, ul {
   flex-direction: row;
   width: 100%;
   height: 93px;
-  /* margin-right: 0px; */
   padding: 20px 0;
   align-items: center;
   justify-content: center;
@@ -599,6 +598,8 @@ ol, ul {
 }
 
 .write-review-btn-icon {
+  position: relative;
+  bottom: 3px;
   float: right;
   height: 16px;
   width: 24px;
