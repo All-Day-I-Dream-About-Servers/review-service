@@ -11,6 +11,7 @@
     "test": "jest",
     "start": "nodemon ./server/index.js",
     "build": "webpack -d --w",
+    "schema": "mysql -u root <./database/resources/schema.sql",
     "seed": "node ./database/resources/seed.js"
   },
   "dependencies": {

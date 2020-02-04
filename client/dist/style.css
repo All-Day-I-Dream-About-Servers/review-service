@@ -586,11 +586,12 @@ ol, ul {
   font-weight: 700;
   text-align: left;
   height: 50px;
-  width: 101%;
+  width: 100%;
   padding: 0 21px;
   background-color: #000;
+  border: #000;
   color: #fff;
-  transform: translate(-3px, -3px);
+  transform: translate(-1px, -3px);
 }
 
 .write-review-btn:hover {
