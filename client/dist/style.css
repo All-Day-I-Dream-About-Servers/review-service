@@ -589,6 +589,7 @@ ol, ul {
   width: 100%;
   padding: 0 21px;
   background-color: #000;
+  border: #000;
   color: #fff;
   transform: translate(-1px, -3px);
 }
