@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  client_tests:
+  build:
     docker:
       - image: circleci/node:10-browsers
 
