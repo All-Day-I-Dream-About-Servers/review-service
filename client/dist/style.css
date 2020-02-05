@@ -77,6 +77,10 @@
     width: 100%;
   }
 
+  .reviews-reviews {
+    margin-right: 4.16667%;
+  }
+
   .review-horiz-offset {
     margin-left: 4.16667%;
   }
@@ -88,7 +92,7 @@
   .reviews-col-l-14 {
     width: 58.33333%;
   }
-  
+
   .reviews-col-l-22 {
     width: 91.66667%;
   }
