@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 // import toJson from 'enzyme-to-json';
 // import axios from 'axios';
 import App from '../client/src/components/App';
