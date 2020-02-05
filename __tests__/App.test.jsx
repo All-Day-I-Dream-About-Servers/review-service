@@ -64,22 +64,8 @@ describe('<App /> Initial Rendering', () => {
 });
 
 describe('<App /> methods', () => {
-  it('should add a filter to the results after clicking on a rating distribution line ', () => {
-    const wrapper = shallow(<App />);
-    wrapper.instance().componentDidMount();
-    wrapper.findWhere((n) => n.text() === '5 STARS' && n.type() === 'li').simulate('click', {
-      preventDefault: () => {},
-      persist: () => {},
-      target: {
-        id: 5,
-      },
-    });
-    expect(wrapper).toContainMatchingElement('.review-filter-list-item');
-  });
-
   it('should alter the style of the sorting buttons when newest gets clicked', () => {
     const wrapper = shallow(<App />);
-    wrapper.instance().componentDidMount();
     wrapper.find('button.newest').simulate('click', {
       preventDefault: () => {
       },
@@ -95,7 +81,6 @@ describe('<App /> methods', () => {
 
   it('should alter the style of the sorting buttons when helpful gets clicked', () => {
     const wrapper = shallow(<App />);
-    wrapper.instance().componentDidMount();
     wrapper.find('button.helpful').simulate('click', {
       preventDefault: () => {
       },
@@ -111,7 +96,6 @@ describe('<App /> methods', () => {
 
   it('should alter the style of the sorting buttons when relevant gets clicked', () => {
     const wrapper = shallow(<App />);
-    wrapper.instance().componentDidMount();
     wrapper.find('button.relevant').simulate('click', {
       preventDefault: () => {
       },
@@ -123,5 +107,42 @@ describe('<App /> methods', () => {
         borderBottom: '2px solid #000',
       },
     });
+  });
+
+  it('should load 5 more reviews when load more button is clicked', () => {
+    const wrapper = shallow(<App />);
+    wrapper.find('.load-more-btn').simulate('click', {
+      preventDefault: () => {},
+    });
+    expect(wrapper).toHaveState({
+      displayCount: 7,
+    });
+  });
+
+  it('should add a filter to the results after clicking on a rating distribution line ', () => {
+    const wrapper = shallow(<App />);
+    wrapper.findWhere((n) => n.text() === '5 STARS' && n.type() === 'li').simulate('click', {
+      preventDefault: () => {},
+      persist: () => {},
+      target: {
+        id: 5,
+      },
+    });
+    expect(wrapper).toContainMatchingElement('.review-filter-list-item');
+  });
+
+  it('should clear all filters after clicking remove all filters button', () => {
+    const wrapper = shallow(<App />);
+    wrapper.findWhere((n) => n.text() === '5 STARS' && n.type() === 'li').simulate('click', {
+      preventDefault: () => {},
+      persist: () => {},
+      target: {
+        id: 5,
+      },
+    });
+    wrapper.find('.remove-filter-btn').simulate('click', {
+      preventDefault: () => {},
+    });
+    expect(wrapper).not.toContainMatchingElement('.review-filter-list-item');
   });
 });
