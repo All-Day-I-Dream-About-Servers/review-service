@@ -223,157 +223,159 @@ export default class App extends React.Component {
     };
 
     return (
-      <div>
-        <div className="reviews-heading offset-xl-2 col-xl-20 offset-l-1 col-l-22 col-s-12 v-spacing-l">
+      <div className="review-module-container">
+        <div className="reviews-heading review-horiz-offset reviews-col-s reviews-col-l-22 reviews-v-spacing-l">
           <div>
             <h3>RATINGS &amp; REVIEWS</h3>
           </div>
         </div>
-        <div className="reviews-summary offset-xl-2 offset-l-1 col-l-7 col-s-12">
-          <div>
-            <div className="reviews-rating v-spacing-m">
-              <div className="totals">
-                <div className="overall-rating">
-                  <h4>{(Math.round(this.state.summary.avgRating * 10) / 10).toFixed(1)}</h4>
-                </div>
-                <div className="review-body-s v-spacing-s overall-stars">
-                  <div className="overall-stars-pos">
-                    <span className="overall-stars-display"><span style={overallRatingFill} /></span>
+        <div className="reviews-row-container">
+          <div className="reviews-summary review-horiz-offset reviews-col-s reviews-col-l-7">
+            <div>
+              <div className="reviews-rating reviews-v-spacing-m">
+                <div className="reviews-totals">
+                  <div className="reviews-overall-rating">
+                    <h4>{(Math.round(this.state.summary.avgRating * 10) / 10).toFixed(1)}</h4>
                   </div>
-                  <span className="review-body-s"><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
+                  <div className="review-body-s reviews-v-spacing-s overall-stars">
+                    <div className="overall-stars-pos">
+                      <span className="overall-stars-display"><span style={overallRatingFill} /></span>
+                    </div>
+                    <span className="review-body-s"><strong>{this.state.summary.totalReviews}</strong> Reviews</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <h5 className="review-heading-s">RATING BREAKDOWN</h5>
-            {this.state.filter.length > 0 && (
-              <div className="review-filter-status col-s-12">Showing reviews:
-                <ul className="review-filter-list">
-                  {this.state.filter.map((num) => <li className="review-filter-list-item">{num} STARS</li>)}
+              <h5 className="review-heading-s">RATING BREAKDOWN</h5>
+              {this.state.filter.length > 0 && (
+                <div className="review-filter-status reviews-col-s">Showing reviews:
+                  <ul className="review-filter-list">
+                    {this.state.filter.map((num) => <li className="review-filter-list-item">{num} STARS</li>)}
+                  </ul>
+                  <div className="remove-filter-btn" onClick={this.removeAllFilters}>Remove all filters</div>
+                </div>
+              )}
+              <div className="sliders reviews-v-spacing-m">
+                <ul className="slider-list">
+                  <li className="reviews-v-spacing-s" id={5} onClick={this.filterByRating}>
+                    <div className="slider-text" id={5}>5 STARS</div>
+                    <div className="star-bar" id={5}>
+                      <div className="star-bar-filled" id={5} style={fiveStarBarWidth} />
+                    </div>
+                    <div className="review-count" id={5}>{this.state.summary.totalFive}</div>
+                  </li>
+                  <li className="reviews-v-spacing-s" id={4} onClick={this.filterByRating}>
+                    <div className="slider-text" id={4}>4 STARS</div>
+                    <div className="star-bar" id={4}>
+                      <div className="star-bar-filled" id={4} style={fourStarBarWidth} />
+                    </div>
+                    <div className="review-count" id={4}>{this.state.summary.totalFour}</div>
+                  </li>
+                  <li className="reviews-v-spacing-s" id={3} onClick={this.filterByRating}>
+                    <div className="slider-text" id={3}>3 STARS</div>
+                    <div className="star-bar" id={3}>
+                      <div className="star-bar-filled" id={3} style={threeStarBarWidth} />
+                    </div>
+                    <div className="review-count" id={3}>{this.state.summary.totalThree}</div>
+                  </li>
+                  <li className="reviews-v-spacing-s" id={2} onClick={this.filterByRating}>
+                    <div className="slider-text" id={2}>2 STARS</div>
+                    <div className="star-bar" id={2}>
+                      <div className="star-bar-filled" id={2} style={twoStarBarWidth} />
+                    </div>
+                    <div className="review-count" id={2}>{this.state.summary.totalTwo}</div>
+                  </li>
+                  <li className="reviews-v-spacing-s" id={1} onClick={this.filterByRating}>
+                    <div className="slider-text" id={1}>1 STARS</div>
+                    <div className="star-bar" id={1}>
+                      <div className="star-bar-filled" id={1} style={oneStarBarWidth} />
+                    </div>
+                    <div className="review-count" id={1}>{this.state.summary.totalOne}</div>
+                  </li>
                 </ul>
-                <div className="remove-filter-btn" onClick={this.removeAllFilters}>Remove all filters</div>
               </div>
-            )}
-            <div className="sliders v-spacing-m">
-              <ul className="slider-list">
-                <li className="v-spacing-s" id={5} onClick={this.filterByRating}>
-                  <div className="slider-text" id={5}>5 STARS</div>
-                  <div className="star-bar" id={5}>
-                    <div className="star-bar-filled" id={5} style={fiveStarBarWidth} />
-                  </div>
-                  <div className="review-count" id={5}>{this.state.summary.totalFive}</div>
-                </li>
-                <li className="v-spacing-s" id={4} onClick={this.filterByRating}>
-                  <div className="slider-text" id={4}>4 STARS</div>
-                  <div className="star-bar" id={4}>
-                    <div className="star-bar-filled" id={4} style={fourStarBarWidth} />
-                  </div>
-                  <div className="review-count" id={4}>{this.state.summary.totalFour}</div>
-                </li>
-                <li className="v-spacing-s" id={3} onClick={this.filterByRating}>
-                  <div className="slider-text" id={3}>3 STARS</div>
-                  <div className="star-bar" id={3}>
-                    <div className="star-bar-filled" id={3} style={threeStarBarWidth} />
-                  </div>
-                  <div className="review-count" id={3}>{this.state.summary.totalThree}</div>
-                </li>
-                <li className="v-spacing-s" id={2} onClick={this.filterByRating}>
-                  <div className="slider-text" id={2}>2 STARS</div>
-                  <div className="star-bar" id={2}>
-                    <div className="star-bar-filled" id={2} style={twoStarBarWidth} />
-                  </div>
-                  <div className="review-count" id={2}>{this.state.summary.totalTwo}</div>
-                </li>
-                <li className="v-spacing-s" id={1} onClick={this.filterByRating}>
-                  <div className="slider-text" id={1}>1 STARS</div>
-                  <div className="star-bar" id={1}>
-                    <div className="star-bar-filled" id={1} style={oneStarBarWidth} />
-                  </div>
-                  <div className="review-count" id={1}>{this.state.summary.totalOne}</div>
-                </li>
-              </ul>
-            </div>
-            <div className="recommendation-heading v-spacing-m">
-              <h4>{this.state.summary.percentRec}%</h4>
-              <div className="recommendation-tagline">of customers recommend this product</div>
-            </div>
-            <div className="comparison-container">
-              <div className="comparison-title">SIZE</div>
-              <div className="comparison-bar">
-                <div className="comparison-bar-spacer1" />
-                <div className="comparison-bar-spacer2" />
-                <div className="comparison-bar-spacer3" />
-                <div className="comparison-triangle" style={sizeTrianglePosition} />
+              <div className="recommendation-heading reviews-v-spacing-m">
+                <h4>{this.state.summary.percentRec}%</h4>
+                <div className="recommendation-tagline">of customers recommend this product</div>
               </div>
-              <div className="comparison-text-wrapper">
-                <div className="comparison-text-left">TOO SMALL</div>
-                <div className="comparison-text-mid">PERFECT</div>
-                <div className="comparison-text-right">TOO LARGE</div>
+              <div className="comparison-container">
+                <div className="comparison-title">SIZE</div>
+                <div className="comparison-bar">
+                  <div className="comparison-bar-spacer1" />
+                  <div className="comparison-bar-spacer2" />
+                  <div className="comparison-bar-spacer3" />
+                  <div className="comparison-triangle" style={sizeTrianglePosition} />
+                </div>
+                <div className="comparison-text-wrapper">
+                  <div className="comparison-text-left">TOO SMALL</div>
+                  <div className="comparison-text-mid">PERFECT</div>
+                  <div className="comparison-text-right">TOO LARGE</div>
+                </div>
               </div>
-            </div>
-            <div className="comparison-container">
-              <div className="comparison-title">WIDTH</div>
-              <div className="comparison-bar">
-                <div className="comparison-bar-spacer1" />
-                <div className="comparison-bar-spacer2" />
-                <div className="comparison-bar-spacer3" />
-                <div className="comparison-triangle" style={widthTrianglePosition} />
+              <div className="comparison-container">
+                <div className="comparison-title">WIDTH</div>
+                <div className="comparison-bar">
+                  <div className="comparison-bar-spacer1" />
+                  <div className="comparison-bar-spacer2" />
+                  <div className="comparison-bar-spacer3" />
+                  <div className="comparison-triangle" style={widthTrianglePosition} />
+                </div>
+                <div className="comparison-text-wrapper">
+                  <div className="comparison-text-left">TOO NARROW</div>
+                  <div className="comparison-text-mid">PERFECT</div>
+                  <div className="comparison-text-right">TOO WIDE</div>
+                </div>
               </div>
-              <div className="comparison-text-wrapper">
-                <div className="comparison-text-left">TOO NARROW</div>
-                <div className="comparison-text-mid">PERFECT</div>
-                <div className="comparison-text-right">TOO WIDE</div>
+              <div className="comparison-container">
+                <div className="comparison-title">COMFORT</div>
+                <div className="comparison-bar">
+                  <div className="comparison-bar-spacer1" />
+                  <div className="comparison-bar-spacer2" />
+                  <div className="comparison-bar-spacer3" />
+                  <div className="comparison-triangle" style={comfortTrianglePosition} />
+                </div>
+                <div className="comparison-text-wrapper">
+                  <div className="comparison-text-left">UNCOMFORTABLE</div>
+                  <div className="comparison-text-right">COMFORTABLE</div>
+                </div>
               </div>
-            </div>
-            <div className="comparison-container">
-              <div className="comparison-title">COMFORT</div>
-              <div className="comparison-bar">
-                <div className="comparison-bar-spacer1" />
-                <div className="comparison-bar-spacer2" />
-                <div className="comparison-bar-spacer3" />
-                <div className="comparison-triangle" style={comfortTrianglePosition} />
-              </div>
-              <div className="comparison-text-wrapper">
-                <div className="comparison-text-left">UNCOMFORTABLE</div>
-                <div className="comparison-text-right">COMFORTABLE</div>
-              </div>
-            </div>
-            <div className="comparison-container">
-              <div className="comparison-title">QUALITY</div>
-              <div className="comparison-bar">
-                <div className="comparison-bar-spacer1" />
-                <div className="comparison-bar-spacer2" />
-                <div className="comparison-bar-spacer3" />
-                <div className="comparison-triangle" style={qualityTrianglePosition} />
-              </div>
-              <div className="comparison-text-wrapper">
-                <div className="comparison-text-left">POOR</div>
-                <div className="comparison-text-right">PERFECT</div>
+              <div className="comparison-container">
+                <div className="comparison-title">QUALITY</div>
+                <div className="comparison-bar">
+                  <div className="comparison-bar-spacer1" />
+                  <div className="comparison-bar-spacer2" />
+                  <div className="comparison-bar-spacer3" />
+                  <div className="comparison-triangle" style={qualityTrianglePosition} />
+                </div>
+                <div className="comparison-text-wrapper">
+                  <div className="comparison-text-left">POOR</div>
+                  <div className="comparison-text-right">PERFECT</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="reviews-reviews offset-l-1 col-xl-12 col-l-14 col-s-12">
-          <div className="reviews-sort-header">
-            <div className="reviews-section-title v-spacing-s">SORT ON</div>
-            <div className="reviews-sort-buttons">
-              <button type="button" className="reviews-sort-btn newest" style={this.state.nBtnActive} onClick={this.newestClickHandler}>newest</button>
-              <button type="button" className="reviews-sort-btn helpful" style={this.state.hBtnActive} onClick={this.helpfulClickHandler}>helpful</button>
-              <button type="button" className="reviews-sort-btn relevant" style={this.state.rBtnActive} onClick={this.relevantClickHandler}>relevant</button>
+          <div className="reviews-reviews review-horiz-offset reviews-col-s reviews-col-l-14 ">
+            <div className="reviews-sort-header">
+              <div className="reviews-section-title reviews-v-spacing-s">SORT ON</div>
+              <div className="reviews-sort-buttons">
+                <button type="button" className="reviews-sort-btn newest" style={this.state.nBtnActive} onClick={this.newestClickHandler}>newest</button>
+                <button type="button" className="reviews-sort-btn helpful" style={this.state.hBtnActive} onClick={this.helpfulClickHandler}>helpful</button>
+                <button type="button" className="reviews-sort-btn relevant" style={this.state.rBtnActive} onClick={this.relevantClickHandler}>relevant</button>
+              </div>
+              <div className="reviews-v-spacing-l" />
             </div>
-            <div className="v-spacing-l" />
+            {this.state.reviews.map((review, index) => (
+              <Review info={review} key={index} />
+            ))}
+            <div className="review-bottom-btns">
+              <div className="load-more-btn-container">
+                <button type="button" className="load-more-btn" onClick={this.loadMoreReviews}>LOAD MORE</button>
+              </div>
+              <div className="write-review-container">
+                <button type="button" className="write-review-btn">WRITE A REVIEW <svg className="write-review-btn-icon"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" /> </svg> </button>
+              </div>
+            </div>
+            <div className="review-module-bottom-spacing" />
           </div>
-          {this.state.reviews.map((review, index) => (
-            <Review info={review} key={index} />
-          ))}
-          <div className="review-bottom-btns">
-            <div className="load-more-btn-container">
-              <button type="button" className="load-more-btn" onClick={this.loadMoreReviews}>LOAD MORE</button>
-            </div>
-            <div className="write-review-container">
-              <button type="button" className="write-review-btn">WRITE A REVIEW <svg className="write-review-btn-icon"> <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" /> </svg> </button>
-            </div>
-          </div>
-          <div className="review-module-bottom-spacing" />
         </div>
       </div>
     );
