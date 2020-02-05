@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580604551842" clover="3.2.0">
-  <project timestamp="1580604551843" name="All files">
-    <metrics statements="92" coveredstatements="40" conditionals="22" coveredconditionals="4" methods="29" coveredmethods="6" elements="143" coveredelements="50" complexity="0" loc="92" ncloc="92" packages="1" files="2" classes="2"/>
+<coverage generated="1580871857238" clover="3.2.0">
+  <project timestamp="1580871857238" name="All files">
+    <metrics statements="92" coveredstatements="42" conditionals="22" coveredconditionals="5" methods="29" coveredmethods="8" elements="143" coveredelements="55" complexity="0" loc="92" ncloc="92" packages="1" files="2" classes="2"/>
     <file name="App.jsx" path="/Users/gienappa/Documents/HackReactor/SEI-HRLA34/Senior-section/FEC/review-service/client/src/components/App.jsx">
-      <metrics statements="78" coveredstatements="27" conditionals="16" coveredconditionals="1" methods="28" coveredmethods="5"/>
-      <line num="15" count="3" type="stmt"/>
-      <line num="17" count="3" type="stmt"/>
-      <line num="31" count="3" type="stmt"/>
-      <line num="32" count="3" type="stmt"/>
-      <line num="33" count="3" type="stmt"/>
-      <line num="34" count="3" type="stmt"/>
-      <line num="35" count="3" type="stmt"/>
-      <line num="36" count="3" type="stmt"/>
-      <line num="37" count="3" type="stmt"/>
-      <line num="38" count="3" type="stmt"/>
-      <line num="39" count="3" type="stmt"/>
-      <line num="40" count="3" type="stmt"/>
-      <line num="44" count="4" type="stmt"/>
-      <line num="45" count="4" type="stmt"/>
-      <line num="49" count="3" type="stmt"/>
+      <metrics statements="78" coveredstatements="29" conditionals="16" coveredconditionals="2" methods="28" coveredmethods="7"/>
+      <line num="15" count="5" type="stmt"/>
+      <line num="17" count="5" type="stmt"/>
+      <line num="31" count="5" type="stmt"/>
+      <line num="32" count="5" type="stmt"/>
+      <line num="33" count="5" type="stmt"/>
+      <line num="34" count="5" type="stmt"/>
+      <line num="35" count="5" type="stmt"/>
+      <line num="36" count="5" type="stmt"/>
+      <line num="37" count="5" type="stmt"/>
+      <line num="38" count="5" type="stmt"/>
+      <line num="39" count="5" type="stmt"/>
+      <line num="40" count="5" type="stmt"/>
+      <line num="44" count="8" type="stmt"/>
+      <line num="45" count="8" type="stmt"/>
+      <line num="49" count="7" type="stmt"/>
       <line num="51" count="0" type="stmt"/>
       <line num="55" count="0" type="stmt"/>
-      <line num="59" count="4" type="stmt"/>
+      <line num="59" count="7" type="stmt"/>
       <line num="61" count="0" type="stmt"/>
       <line num="65" count="0" type="stmt"/>
       <line num="69" count="0" type="stmt"/>
@@ -69,19 +69,19 @@
       <line num="176" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="177" count="0" type="stmt"/>
       <line num="179" count="0" type="stmt"/>
-      <line num="185" count="4" type="stmt"/>
-      <line num="189" count="4" type="stmt"/>
-      <line num="193" count="4" type="stmt"/>
-      <line num="197" count="4" type="stmt"/>
-      <line num="201" count="4" type="stmt"/>
-      <line num="205" count="4" type="stmt"/>
-      <line num="209" count="4" type="stmt"/>
-      <line num="213" count="4" type="stmt"/>
-      <line num="217" count="4" type="stmt"/>
-      <line num="221" count="4" type="stmt"/>
-      <line num="225" count="4" type="stmt"/>
-      <line num="251" count="0" type="stmt"/>
-      <line num="366" count="0" type="stmt"/>
+      <line num="185" count="10" type="stmt"/>
+      <line num="189" count="10" type="stmt"/>
+      <line num="193" count="10" type="stmt"/>
+      <line num="197" count="10" type="stmt"/>
+      <line num="201" count="10" type="stmt"/>
+      <line num="205" count="10" type="stmt"/>
+      <line num="209" count="10" type="stmt"/>
+      <line num="213" count="10" type="stmt"/>
+      <line num="217" count="10" type="stmt"/>
+      <line num="221" count="10" type="stmt"/>
+      <line num="225" count="10" type="stmt"/>
+      <line num="251" count="1" type="stmt"/>
+      <line num="366" count="2" type="stmt"/>
     </file>
     <file name="Review.jsx" path="/Users/gienappa/Documents/HackReactor/SEI-HRLA34/Senior-section/FEC/review-service/client/src/components/Review.jsx">
       <metrics statements="14" coveredstatements="13" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
