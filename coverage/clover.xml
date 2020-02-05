@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580871857238" clover="3.2.0">
-  <project timestamp="1580871857238" name="All files">
+<coverage generated="1580922313943" clover="3.2.0">
+  <project timestamp="1580922313944" name="All files">
     <metrics statements="92" coveredstatements="42" conditionals="22" coveredconditionals="5" methods="29" coveredmethods="8" elements="143" coveredelements="55" complexity="0" loc="92" ncloc="92" packages="1" files="2" classes="2"/>
     <file name="App.jsx" path="/Users/gienappa/Documents/HackReactor/SEI-HRLA34/Senior-section/FEC/review-service/client/src/components/App.jsx">
       <metrics statements="78" coveredstatements="29" conditionals="16" coveredconditionals="2" methods="28" coveredmethods="7"/>
-      <line num="15" count="5" type="stmt"/>
-      <line num="17" count="5" type="stmt"/>
-      <line num="31" count="5" type="stmt"/>
-      <line num="32" count="5" type="stmt"/>
-      <line num="33" count="5" type="stmt"/>
-      <line num="34" count="5" type="stmt"/>
-      <line num="35" count="5" type="stmt"/>
-      <line num="36" count="5" type="stmt"/>
-      <line num="37" count="5" type="stmt"/>
-      <line num="38" count="5" type="stmt"/>
-      <line num="39" count="5" type="stmt"/>
-      <line num="40" count="5" type="stmt"/>
-      <line num="44" count="8" type="stmt"/>
-      <line num="45" count="8" type="stmt"/>
-      <line num="49" count="7" type="stmt"/>
+      <line num="15" count="6" type="stmt"/>
+      <line num="17" count="6" type="stmt"/>
+      <line num="31" count="6" type="stmt"/>
+      <line num="32" count="6" type="stmt"/>
+      <line num="33" count="6" type="stmt"/>
+      <line num="34" count="6" type="stmt"/>
+      <line num="35" count="6" type="stmt"/>
+      <line num="36" count="6" type="stmt"/>
+      <line num="37" count="6" type="stmt"/>
+      <line num="38" count="6" type="stmt"/>
+      <line num="39" count="6" type="stmt"/>
+      <line num="40" count="6" type="stmt"/>
+      <line num="44" count="10" type="stmt"/>
+      <line num="45" count="10" type="stmt"/>
+      <line num="49" count="9" type="stmt"/>
       <line num="51" count="0" type="stmt"/>
       <line num="55" count="0" type="stmt"/>
-      <line num="59" count="7" type="stmt"/>
+      <line num="59" count="9" type="stmt"/>
       <line num="61" count="0" type="stmt"/>
       <line num="65" count="0" type="stmt"/>
       <line num="69" count="0" type="stmt"/>
@@ -69,17 +69,17 @@
       <line num="176" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="177" count="0" type="stmt"/>
       <line num="179" count="0" type="stmt"/>
-      <line num="185" count="10" type="stmt"/>
-      <line num="189" count="10" type="stmt"/>
-      <line num="193" count="10" type="stmt"/>
-      <line num="197" count="10" type="stmt"/>
-      <line num="201" count="10" type="stmt"/>
-      <line num="205" count="10" type="stmt"/>
-      <line num="209" count="10" type="stmt"/>
-      <line num="213" count="10" type="stmt"/>
-      <line num="217" count="10" type="stmt"/>
-      <line num="221" count="10" type="stmt"/>
-      <line num="225" count="10" type="stmt"/>
+      <line num="185" count="13" type="stmt"/>
+      <line num="189" count="13" type="stmt"/>
+      <line num="193" count="13" type="stmt"/>
+      <line num="197" count="13" type="stmt"/>
+      <line num="201" count="13" type="stmt"/>
+      <line num="205" count="13" type="stmt"/>
+      <line num="209" count="13" type="stmt"/>
+      <line num="213" count="13" type="stmt"/>
+      <line num="217" count="13" type="stmt"/>
+      <line num="221" count="13" type="stmt"/>
+      <line num="225" count="13" type="stmt"/>
       <line num="251" count="1" type="stmt"/>
       <line num="366" count="2" type="stmt"/>
     </file>

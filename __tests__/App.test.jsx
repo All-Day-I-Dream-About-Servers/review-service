@@ -1,6 +1,8 @@
 /* eslint-env jest */
 import React from 'react';
 import { shallow } from 'enzyme';
+import styled from 'styled-components';
+import 'jest-styled-components';
 // import toJson from 'enzyme-to-json';
 // import axios from 'axios';
 import App from '../client/src/components/App';
@@ -61,8 +63,8 @@ describe('<App /> Initial Rendering', () => {
   });
 });
 
-describe('<App /> button clicks', () => {
-  it('clicking on a rating distribution line should add a filter to the results', () => {
+describe('<App /> methods', () => {
+  it('should add a filter to the results after clicking on a rating distribution line ', () => {
     const wrapper = shallow(<App />);
     const mockFilter = jest.fn(() => {
       wrapper.setState({
@@ -75,4 +77,62 @@ describe('<App /> button clicks', () => {
     wrapper.findWhere((n) => n.text() === '5 STARS' && n.type() === 'li').simulate('click');
     expect(wrapper).toContainMatchingElement('.review-filter-list-item');
   });
+
+  it('should alter the style of the sorting buttons when newest gets clicked', () => {
+    const wrapper = shallow(<App />);
+    const mockClick = jest.fn(() => {
+      wrapper.setState({
+        nBtnActive: {
+          fontWeight: '700',
+          border: '1px solid #000',
+          borderBottom: '2px solid #000',
+        },
+        HbtnActive: null,
+        rBtnActive: null,
+      });
+    });
+    wrapper.instance().newestClickHandler = mockClick;
+    wrapper.instance().forceUpdate();
+    wrapper.instance().componentDidMount();
+    wrapper.findWhere((n) => n.text() === 'newest' && n.type() === 'button').simulate('click');
+    expect(wrapper.findWhere((n) => n.text() === 'newest')).toHaveStyleRule('fontWeight', '700');
+  });
+
+  // it('should alter the style of the sorting buttons when helpful gets clicked', () => {
+  //   const wrapper = shallow(<App />);
+  //   const mockClick = jest.fn(() => {
+  //     wrapper.setState({
+  //       nBtnActive: null,
+  //       HbtnActive: {
+  //         fontWeight: '700',
+  //         border: '1px solid #000',
+  //         borderBottom: '2px solid #000',
+  //       },
+  //       rBtnActive: null,
+  //     });
+  //   });
+  //   wrapper.instance().helpfulClickHandler = mockClick;
+  //   wrapper.instance().forceUpdate();
+  //   wrapper.instance().componentDidMount();
+  //   wrapper.findWhere((n) => n.text() === 'helpful').simulate('click');
+  // });
+
+  // it('should alter the style of the sorting buttons when relevant gets clicked', () => {
+  //   const wrapper = shallow(<App />);
+  //   const mockClick = jest.fn(() => {
+  //     wrapper.setState({
+  //       nBtnActive: null,
+  //       HbtnActive: null,
+  //       rBtnActive: {
+  //         fontWeight: '700',
+  //         border: '1px solid #000',
+  //         borderBottom: '2px solid #000',
+  //       },
+  //     });
+  //   });
+  //   wrapper.instance().relevantClickHandler = mockClick;
+  //   wrapper.instance().forceUpdate();
+  //   wrapper.instance().componentDidMount();
+  //   wrapper.findWhere((n) => n.text() === 'relevant').simulate('click');
+  // });
 });
