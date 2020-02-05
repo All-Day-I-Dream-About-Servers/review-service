@@ -23,7 +23,7 @@ export default class App extends React.Component {
         border: '1px solid #000',
         borderBottom: '2px solid #000',
       },
-      HbtnActive: null,
+      hBtnActive: null,
       rBtnActive: null,
       filter: [],
     };
@@ -94,7 +94,7 @@ export default class App extends React.Component {
         border: '1px solid #000',
         borderBottom: '2px solid #000',
       },
-      HbtnActive: null,
+      hBtnActive: null,
       rBtnActive: null,
     });
   }
@@ -104,7 +104,7 @@ export default class App extends React.Component {
     this.getReviewsByHelpful();
     this.setState({
       nBtnActive: null,
-      HbtnActive: {
+      hBtnActive: {
         fontWeight: '700',
         border: '1px solid #000',
         borderBottom: '2px solid #000',
@@ -118,7 +118,7 @@ export default class App extends React.Component {
     this.getReviewsByRelevant();
     this.setState({
       nBtnActive: null,
-      HbtnActive: null,
+      hBtnActive: null,
       rBtnActive: {
         fontWeight: '700',
         border: '1px solid #000',
@@ -356,9 +356,9 @@ export default class App extends React.Component {
           <div className="reviews-sort-header">
             <div className="reviews-section-title v-spacing-s">SORT ON</div>
             <div className="reviews-sort-buttons">
-              <button type="button" className="reviews-sort-btn" style={this.state.nBtnActive} onClick={this.newestClickHandler}>newest</button>
-              <button type="button" className="reviews-sort-btn" style={this.state.HbtnActive} onClick={this.helpfulClickHandler}>helpful</button>
-              <button type="button" className="reviews-sort-btn" style={this.state.rBtnActive} onClick={this.relevantClickHandler}>relevant</button>
+              <button type="button" className="reviews-sort-btn newest" style={this.state.nBtnActive} onClick={this.newestClickHandler}>newest</button>
+              <button type="button" className="reviews-sort-btn helpful" style={this.state.hBtnActive} onClick={this.helpfulClickHandler}>helpful</button>
+              <button type="button" className="reviews-sort-btn relevant" style={this.state.rBtnActive} onClick={this.relevantClickHandler}>relevant</button>
             </div>
             <div className="v-spacing-l" />
           </div>

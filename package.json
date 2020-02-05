@@ -22,7 +22,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "jest-styled-components": "^7.0.0",
     "morgan": "^1.9.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
@@ -50,6 +49,7 @@
     "jest": "^25.1.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "jest-styled-components": "^7.0.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
