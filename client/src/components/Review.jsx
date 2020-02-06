@@ -27,15 +27,15 @@ const Review = (props) => {
       <div className="review-body">
         <div className="review-rating">{'★'.repeat(info.rating) + '☆'.repeat(5 - info.rating)}</div>
         <div className="review-date">{info.date}</div>
-        <h5 className="review-title v-spacing-s">{title}</h5>
-        <div className="review-body v-spacing-m">{info.body}</div>
-        <div className="review-lower-text v-spacing-s"><img src={imgSrc} height="12px" alt="" />{recommendText}</div>
+        <h5 className="review-title reviews-v-spacing-s">{title}</h5>
+        <div className="review-body reviews-v-spacing-m">{info.body}</div>
+        <div className="review-lower-text reviews-v-spacing-s"><img src={imgSrc} height="12px" alt="" />{recommendText}</div>
         <div className="review-lower-text">
           <span className="review-username">{info.name}</span>
           <span className="review-verified">{verifiedUser}</span>
         </div>
       </div>
-      <div className="review-lower-text v-spacing-l">
+      <div className="review-lower-text reviews-v-spacing-l">
         <span>Was this review helpful?</span>
         <span className="review-replies">
           <span className="review-reply-text">Yes</span>
