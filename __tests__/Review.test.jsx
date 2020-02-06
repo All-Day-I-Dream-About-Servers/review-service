@@ -26,6 +26,6 @@ describe('<Review /> unit tests', () => {
 
   it('should display a checkmark if the item is recommended', () => {
     const review = shallow(<Review info={info} />);
-    expect(review.find('img').prop('src')).toEqual('checkmark.png');
+    expect(review.find('img').prop('src')).toEqual('http://localhost:3003/checkmark.png');
   });
 });
