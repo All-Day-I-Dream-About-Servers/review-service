@@ -9,7 +9,7 @@ const Review = (props) => {
   let imgSrc = null;
   if (info.recommended === true) {
     recommendText = ' I recommend this product';
-    imgSrc = 'checkmark.png';
+    imgSrc = 'http://localhost:3003/checkmark.png';
   }
 
   let verifiedUser = null;

@@ -46,7 +46,7 @@ export default class App extends React.Component {
   }
 
   getReviewsSummary() {
-    axios.get('/api/reviews/overview')
+    axios.get('http://localhost:3003/api/reviews/overview')
       .then((data) => {
         this.setState({
           summary: data.data,
@@ -56,7 +56,7 @@ export default class App extends React.Component {
   }
 
   getReviewsByNewest() {
-    axios.get(`/api/reviews/newest/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
+    axios.get(`http://localhost:3003/api/reviews/newest/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
         this.setState({
           reviews: data.data,
@@ -66,7 +66,7 @@ export default class App extends React.Component {
   }
 
   getReviewsByHelpful() {
-    axios.get(`/api/reviews/helpful/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
+    axios.get(`http://localhost:3003/api/reviews/helpful/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
         this.setState({
           reviews: data.data,
@@ -76,7 +76,7 @@ export default class App extends React.Component {
   }
 
   getReviewsByRelevant() {
-    axios.get(`/api/reviews/relevant/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
+    axios.get(`http://localhost:3003/api/reviews/relevant/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
         this.setState({
           reviews: data.data,
