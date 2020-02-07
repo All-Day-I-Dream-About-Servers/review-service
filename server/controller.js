@@ -2,43 +2,47 @@ const models = require('../database/model.js');
 
 const controller = {
   getReviewsByNewest: (req, res) => {
+    const id = req.baseUrl.slice(1);
     const filter = JSON.parse(req.params.filter);
     if (filter.length) {
-      models.reviewsByNewest(Number(req.params.limit), filter)
+      models.reviewsByNewest(id, Number(req.params.limit), filter)
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     } else {
-      models.reviewsByNewest(Number(req.params.limit), [1, 2, 3, 4, 5])
+      models.reviewsByNewest(id, Number(req.params.limit), [1, 2, 3, 4, 5])
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     }
   },
   getReviewsByHelpful: (req, res) => {
+    const id = req.baseUrl.slice(1);
     const filter = JSON.parse(req.params.filter);
     if (filter.length) {
-      models.reviewsByHelpful(Number(req.params.limit), filter)
+      models.reviewsByHelpful(id, Number(req.params.limit), filter)
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     } else {
-      models.reviewsByHelpful(Number(req.params.limit), [1, 2, 3, 4, 5])
+      models.reviewsByHelpful(id, Number(req.params.limit), [1, 2, 3, 4, 5])
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     }
   },
   getReviewsByRelevant: (req, res) => {
+    const id = req.baseUrl.slice(1);
     const filter = JSON.parse(req.params.filter);
     if (filter.length) {
-      models.reviewsByRelevant(Number(req.params.limit), filter)
+      models.reviewsByRelevant(id, Number(req.params.limit), filter)
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     } else {
-      models.reviewsByRelevant(Number(req.params.limit), [1, 2, 3, 4, 5])
+      models.reviewsByRelevant(id, Number(req.params.limit), [1, 2, 3, 4, 5])
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     }
   },
   getSummary: (req, res) => {
-    models.summary()
+    const id = req.baseUrl.slice(1);
+    models.summary(id)
       .then((data) => {
         const summary = {
           avgRating: 0,

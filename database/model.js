@@ -2,8 +2,9 @@ const { Op } = require('sequelize');
 const Review = require('./index.js');
 
 module.exports = {
-  reviewsByNewest: (limit, ratingArray) => Review.findAll({
+  reviewsByNewest: (id, limit, ratingArray) => Review.findAll({
     where: {
+      prodId: id,
       rating: {
         [Op.or]: ratingArray,
       },
@@ -11,8 +12,9 @@ module.exports = {
     order: [['dateNum', 'DESC']],
     limit,
   }),
-  reviewsByHelpful: (limit, ratingArray) => Review.findAll({
+  reviewsByHelpful: (id, limit, ratingArray) => Review.findAll({
     where: {
+      prodId: id,
       rating: {
         [Op.or]: ratingArray,
       },
@@ -20,8 +22,9 @@ module.exports = {
     order: [['helpfulYes', 'DESC']],
     limit,
   }),
-  reviewsByRelevant: (limit, ratingArray) => Review.findAll({
+  reviewsByRelevant: (id, limit, ratingArray) => Review.findAll({
     where: {
+      prodId: id,
       verified: true,
       rating: {
         [Op.or]: ratingArray,
@@ -29,5 +32,9 @@ module.exports = {
     },
     limit,
   }),
-  summary: () => Review.findAll({}),
+  summary: (id) => Review.findAll({
+    where: {
+      prodId: id,
+    },
+  }),
 };
