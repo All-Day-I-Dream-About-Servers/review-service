@@ -26,7 +26,7 @@ const badTitles = [
 ];
 
 const generateReviews = () => {
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < 666; i += 1) {
     const rating = generateRating();
     let title; let recommended;
     let verified = false;
