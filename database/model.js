@@ -2,8 +2,14 @@ const { Op } = require('sequelize');
 const Review = require('./index.js');
 
 module.exports = {
-  reviewsByNewest: (limit, ratingArray) => Review.findAll({
+  reviewsByNewest: (id, limit, ratingArray) => Review.findAll({
     where: {
+      id: {
+        [Op.or]: {
+          [Op.gt]: (29 % id) * Math.round(id % 7.7),
+          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
+        },
+      },
       rating: {
         [Op.or]: ratingArray,
       },
@@ -11,8 +17,14 @@ module.exports = {
     order: [['dateNum', 'DESC']],
     limit,
   }),
-  reviewsByHelpful: (limit, ratingArray) => Review.findAll({
+  reviewsByHelpful: (id, limit, ratingArray) => Review.findAll({
     where: {
+      id: {
+        [Op.or]: {
+          [Op.gt]: (29 % id) * Math.round(id % 7.7),
+          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
+        },
+      },
       rating: {
         [Op.or]: ratingArray,
       },
@@ -20,8 +32,14 @@ module.exports = {
     order: [['helpfulYes', 'DESC']],
     limit,
   }),
-  reviewsByRelevant: (limit, ratingArray) => Review.findAll({
+  reviewsByRelevant: (id, limit, ratingArray) => Review.findAll({
     where: {
+      id: {
+        [Op.or]: {
+          [Op.gt]: (29 % id) * Math.round(id % 7.7),
+          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
+        },
+      },
       verified: true,
       rating: {
         [Op.or]: ratingArray,
@@ -29,5 +47,14 @@ module.exports = {
     },
     limit,
   }),
-  summary: () => Review.findAll({}),
+  summary: (id) => Review.findAll({
+    where: {
+      id: {
+        [Op.or]: {
+          [Op.gt]: (29 % id) * Math.round(id % 7.7),
+          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
+        },
+      },
+    },
+  }),
 };
