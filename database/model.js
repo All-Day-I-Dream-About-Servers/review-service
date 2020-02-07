@@ -4,12 +4,7 @@ const Review = require('./index.js');
 module.exports = {
   reviewsByNewest: (id, limit, ratingArray) => Review.findAll({
     where: {
-      id: {
-        [Op.and]: {
-          [Op.gt]: (29 % id) * Math.round(id % 7.7),
-          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
-        },
-      },
+      prodId: id,
       rating: {
         [Op.or]: ratingArray,
       },
@@ -19,12 +14,7 @@ module.exports = {
   }),
   reviewsByHelpful: (id, limit, ratingArray) => Review.findAll({
     where: {
-      id: {
-        [Op.and]: {
-          [Op.gt]: (29 % id) * Math.round(id % 7.7),
-          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
-        },
-      },
+      prodId: id,
       rating: {
         [Op.or]: ratingArray,
       },
@@ -34,12 +24,7 @@ module.exports = {
   }),
   reviewsByRelevant: (id, limit, ratingArray) => Review.findAll({
     where: {
-      id: {
-        [Op.and]: {
-          [Op.gt]: (29 % id) * Math.round(id % 7.7),
-          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
-        },
-      },
+      prodId: id,
       verified: true,
       rating: {
         [Op.or]: ratingArray,
@@ -49,12 +34,7 @@ module.exports = {
   }),
   summary: (id) => Review.findAll({
     where: {
-      id: {
-        [Op.and]: {
-          [Op.gt]: (29 % id) * Math.round(id % 7.7),
-          [Op.lt]: 666 - (30 % id) * Math.round(id % 5.5),
-        },
-      },
+      prodId: id,
     },
   }),
 };

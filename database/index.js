@@ -7,6 +7,7 @@ const sequelize = new Sequelize('reviews', 'root', '', {
 });
 
 const Review = sequelize.define('Review', {
+  prodId: { type: Sequelize.INTEGER, allowNull: false },
   rating: { type: Sequelize.INTEGER, allowNull: false },
   title: Sequelize.STRING,
   body: { type: Sequelize.TEXT, allowNull: false },

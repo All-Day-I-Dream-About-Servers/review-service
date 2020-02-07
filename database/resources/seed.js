@@ -5,9 +5,9 @@ const Review = require('../index.js');
 
 const generateRating = () => {
   const temp = Math.random();
-  if (temp >= 0.22) {
+  if (temp >= 0.3) {
     return faker.random.number({ min: 4, max: 5 });
-  } else if (temp >= 0.1) {
+  } else if (temp >= 0.15) {
     return 3;
   } else {
     return faker.random.number({ min: 1, max: 2 });
@@ -26,7 +26,8 @@ const badTitles = [
 ];
 
 const generateReviews = () => {
-  for (let i = 0; i < 666; i += 1) {
+  for (let i = 0; i < 10000; i += 1) {
+    const prodId = faker.random.number({ min: 1, max: 100 });
     const rating = generateRating();
     let title; let recommended;
     let verified = false;
@@ -69,6 +70,7 @@ const generateReviews = () => {
       dayStr = `${day}`;
     }
     const fakeReview = {
+      prodId,
       rating,
       title,
       body: faker.lorem.sentences(Math.round(Math.random() * 3 + 1)),

@@ -5,6 +5,7 @@ USE reviews;
 
 CREATE TABLE reviews (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  prodId INT NOT NULL,
   rating INT NOT NULL,
   title TEXT,
   body TEXT NOT NULL,
