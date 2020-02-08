@@ -1,19 +1,32 @@
 const models = require('../database/model.js');
 
 const controller = {
+  // gets reviews sorted by date/newest
   getReviewsByNewest: (req, res) => {
+    // id determined by base endpoint (product id#)
+    // value is sliced because baseUrl returns entire endpoint ex. '/2', we only use '2'
     const id = req.baseUrl.slice(1);
+
+    // filter comes in as a string (otherwise url doesn't resolve),
+    // so it needs to be parsed back into an array
     const filter = JSON.parse(req.params.filter);
+
+    // checks if filter has any terms, if so filter by those values
+    // otherwise don't filter, aka "filter" by all ratings
     if (filter.length) {
+      // filtered query
       models.reviewsByNewest(id, Number(req.params.limit), filter)
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     } else {
+      // "unfiltered" query
       models.reviewsByNewest(id, Number(req.params.limit), [1, 2, 3, 4, 5])
         .then((data) => res.status(200).send(data))
         .catch((err) => res.status(400).send(err));
     }
   },
+  // gets reviews sorted by helpful score
+  // see getReviewsByNewest for parameter notes
   getReviewsByHelpful: (req, res) => {
     const id = req.baseUrl.slice(1);
     const filter = JSON.parse(req.params.filter);
@@ -27,6 +40,8 @@ const controller = {
         .catch((err) => res.status(400).send(err));
     }
   },
+  // gets reviews filtered by verified purchasers
+  // see getReviewsByNewest for parameter notes
   getReviewsByRelevant: (req, res) => {
     const id = req.baseUrl.slice(1);
     const filter = JSON.parse(req.params.filter);
@@ -40,10 +55,16 @@ const controller = {
         .catch((err) => res.status(400).send(err));
     }
   },
+  // get all reviews for given product, process aggregates and save as corresponding
+  // property values in output object. send output object as response
+  // (this computes the summary data of the product and sends the result to the client,
+  // without sending all of the reviews to the client)
   getSummary: (req, res) => {
     const id = req.baseUrl.slice(1);
     models.summary(id)
       .then((data) => {
+        // this value will be used as the 'summary' state property in the client
+        // it contains all values needed to render the overview section of the reviews module
         const summary = {
           avgRating: 0,
           totalReviews: data.length,

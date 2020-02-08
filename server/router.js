@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const controller = require('./controller.js');
 
+// each route corresponds to a specific sorting type
 router
   .route('/reviews/newest/:limit/:filter')
   .get(controller.getReviewsByNewest);

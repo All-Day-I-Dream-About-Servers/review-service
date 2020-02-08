@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -14,8 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 
+// all requests to a product id# go through router
 app.use('/:id', router);
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
-// eslint-disable-next-line no-console
 app.listen(port, () => console.log(`Server listening on port ${port}`));

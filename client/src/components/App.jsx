@@ -15,18 +15,18 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      id: window.location.pathname.slice(1, -1),
-      summary: {},
-      displayCount: 2,
-      reviews: [],
-      nBtnActive: {
+      id: window.location.pathname.slice(1, -1), // defined by url endpoint. url=".../2", id = 2
+      summary: {}, // info used to create overview section
+      displayCount: 2, // # of reviews to display on page, default is 2
+      reviews: [], // array containing reviews retrieved from db
+      nBtnActive: { // in-line styling to be used by the active sorting button
         fontWeight: '700',
         border: '1px solid #000',
         borderBottom: '2px solid #000',
       },
-      hBtnActive: null,
-      rBtnActive: null,
-      filter: [],
+      hBtnActive: null, // in-line styling to be used by the active sorting button
+      rBtnActive: null, // in-line styling to be used by the active sorting button
+      filter: [], // the additional rating filter to be used by db queries, default is no filtering
     };
 
     this.getReviewsSummary = this.getReviewsSummary.bind(this);
@@ -41,11 +41,14 @@ export default class App extends React.Component {
     this.removeAllFilters = this.removeAllFilters.bind(this);
   }
 
+  // when page loads, retrieve product reviews by newest (by default, per adidas website)
+  // and retrieve summary info of given product
   componentDidMount() {
     this.getReviewsSummary();
     this.getReviewsByNewest();
   }
 
+  // retrieves summary info of given product (avg rating, # of reviews, etc)
   getReviewsSummary() {
     axios.get(`http://localhost:3003/${this.state.id}/reviews/overview`)
       .then((data) => {
@@ -56,6 +59,7 @@ export default class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
+  // gets reviews sorted by newest for given product, limited to displayCount
   getReviewsByNewest() {
     axios.get(`http://localhost:3003/${this.state.id}/reviews/newest/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
@@ -66,6 +70,7 @@ export default class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
+  // gets reviews sorted by helpful score for given product, limited to displayCount
   getReviewsByHelpful() {
     axios.get(`http://localhost:3003/${this.state.id}/reviews/helpful/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
@@ -76,6 +81,7 @@ export default class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
+  // gets reviews filtered by verified purchase for given product, limited to displayCount
   getReviewsByRelevant() {
     axios.get(`http://localhost:3003/${this.state.id}/reviews/relevant/${this.state.displayCount}/${JSON.stringify(this.state.filter)}`)
       .then((data) => {
@@ -86,6 +92,7 @@ export default class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
+  // when "newest" buttom is clicked, gets reviews by newest, and sets conditional styling
   newestClickHandler(e) {
     e.preventDefault();
     this.getReviewsByNewest();
@@ -100,6 +107,7 @@ export default class App extends React.Component {
     });
   }
 
+  // when "helpful" buttom is clicked, gets reviews by newest, and sets conditional styling
   helpfulClickHandler(e) {
     e.preventDefault();
     this.getReviewsByHelpful();
@@ -114,6 +122,7 @@ export default class App extends React.Component {
     });
   }
 
+  // when "relevant" buttom is clicked, gets reviews by newest, and sets conditional styling
   relevantClickHandler(e) {
     e.preventDefault();
     this.getReviewsByRelevant();
@@ -128,6 +137,7 @@ export default class App extends React.Component {
     });
   }
 
+  // loads more reviews in increments of 5 9increase displayCount, then re-runs appropriate getter
   loadMoreReviews(e) {
     e.preventDefault();
     this.setState((prevState) => {
@@ -144,6 +154,7 @@ export default class App extends React.Component {
     });
   }
 
+  // adds values to filter state array when clicked, the re-runs appropriate review getter
   filterByRating(e) {
     e.preventDefault();
     e.persist();
@@ -167,6 +178,7 @@ export default class App extends React.Component {
     });
   }
 
+  // clears filters (empties filter array), then re-runs appropriate review getter
   removeAllFilters(e) {
     e.preventDefault();
     this.setState({
@@ -183,6 +195,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    // ...BarWidth variables define %-age width for each rating distribution bar
     const fiveStarBarWidth = {
       width: `${(this.state.summary.totalFive / this.state.summary.totalReviews) * 100}%`,
     };
@@ -203,6 +216,8 @@ export default class App extends React.Component {
       width: `${(this.state.summary.totalOne / this.state.summary.totalReviews) * 100}%`,
     };
 
+    // ...TrianglePosition variables define position of each comparison slider
+    // (position relative from left bound by %-age of width)
     const sizeTrianglePosition = {
       left: `${(this.state.summary.avgSize / 10) * 100}%`,
     };
@@ -219,6 +234,7 @@ export default class App extends React.Component {
       left: `${(this.state.summary.avgQuality / 10) * 100}%`,
     };
 
+    // computes display width of filled-in stars in overall rating (%-age of width)
     const overallRatingFill = {
       width: `${(Math.round(this.state.summary.avgRating * 10) / 10) * 20}%`,
     };
