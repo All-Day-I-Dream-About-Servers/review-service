@@ -2,7 +2,7 @@
 const faker = require('faker');
 const Review = require('../index.js');
 
-
+// generateRating returns a random rating value b/w 1-5, with values skewed towards 4 and 5.
 const generateRating = () => {
   const temp = Math.random();
   if (temp >= 0.3) {
@@ -14,17 +14,22 @@ const generateRating = () => {
   }
 };
 
+// Pool of fake titles for positive reviews
 const goodTitles = [
   'I love these shoes!', 'Great purchase', 'Stylish and comfortable', 'No regrets',
   'Excellent!', 'Good shoes', null, 'Wonderful', 'Recommended', 'My new fave!', 'Best shoes',
   'Wise purchase', 'Great buy', 'Love them!', 'Not bad',
 ];
 
+// Pool of fake titles for negative reviews
 const badTitles = [
   'Fit poorly', null, 'Didn\'t last', 'Don\'t buy', null, 'Beware!', 'Look elsewhere',
   'Nike >', 'Not good',
 ];
 
+// generateReviews creates each individual rating, defining values for each property/table column
+// and then creating the entry on the last line.
+// change for-loop end condition to adjust # of reviews generated
 const generateReviews = () => {
   for (let i = 0; i < 10000; i += 1) {
     const prodId = faker.random.number({ min: 1, max: 100 });

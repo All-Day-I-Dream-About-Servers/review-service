@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 const Sequelize = require('sequelize');
 
+// Define database connection
 const sequelize = new Sequelize('reviews', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
 });
 
+// Database table model
 const Review = sequelize.define('Review', {
   prodId: { type: Sequelize.INTEGER, allowNull: false },
   rating: { type: Sequelize.INTEGER, allowNull: false },
@@ -24,6 +26,7 @@ const Review = sequelize.define('Review', {
   quality: { type: Sequelize.INTEGER, allowNull: false },
 }, { timestamps: false });
 
+// Connect to db
 sequelize.authenticate()
   .then(() => console.log('Database connection established'))
   .catch((err) => console.error(err));
